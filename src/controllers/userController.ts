@@ -1,15 +1,11 @@
 import IUser from "../models/IUser";
-import UserConvertor from "../converters/userConverter";
-import userAPI, { IUserAPI } from "../persistence/userAPI";
 import UserService, { IUserService } from "../services/userService";
 
 export default class UserCtrl {
 
-    private userAPI: IUserAPI; 
     private userService: IUserService; 
 
     constructor() {
-        this.userAPI = new userAPI();
         this.userService = new UserService();
     }
 
@@ -22,7 +18,12 @@ export default class UserCtrl {
 
     public async searchUser(data: any): Promise<IUser[]> {
         // log interaction
-        // do a search by name if that is the input
+        // do a search by name if user wants to search by name
         return this.userService.searchUserByEmail(data);
+    }
+
+    public addFriend(data: any): void {
+        // log interaction
+        return this.userService.addFriend(data);
     }
 }

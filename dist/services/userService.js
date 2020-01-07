@@ -28,6 +28,17 @@ class UserService {
             throw new Error("Error saving user");
         }
     }
+    addFriend(data) {
+        const email1 = data.email1;
+        const email2 = data.email2;
+        try {
+            this.userAPI.addFriendship(email1, email2);
+        }
+        catch (err) {
+            console.error("Error adding friendship", email1, email2);
+            throw new Error("Error adding friendship");
+        }
+    }
     searchUserByEmail(data) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

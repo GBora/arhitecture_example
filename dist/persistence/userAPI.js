@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const UserModel_1 = __importDefault(require("./UserModel"));
 const sequelize_1 = require("sequelize");
+const FriendsModel_1 = __importDefault(require("./FriendsModel"));
 class userAPI {
     saveUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -38,6 +39,21 @@ class userAPI {
                     [sequelize_1.Op.like]: "%" + email + "%"
                 }
             }
+        });
+    }
+    addFriendship(person1, person2) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield FriendsModel_1.default.sync().then(() => {
+                try {
+                    return FriendsModel_1.default.create({
+                        FRIEND1: person1,
+                        FRIEND2: person2
+                    });
+                }
+                catch (err) {
+                    throw err;
+                }
+            });
         });
     }
 }

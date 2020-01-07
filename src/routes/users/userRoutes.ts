@@ -12,17 +12,26 @@ userRoutes.post("/new", (req: Request, res: Response) => {
     } catch (err) {
         res.sendStatus(500);
     }
-    res.sendStatus(200);
+    res.json({ok: true});
 });
 
 userRoutes.post("/search", (req: Request, res: Response) => {
     try {
         userCtrl.searchUser(req.body).then((searchResults: IUser[]) => {
-            res.send(JSON.stringify(searchResults));
+            res.json(searchResults);
         })
     } catch (err) {
         res.sendStatus(500);
     }
 });
+
+userRoutes.post("/add-friend", (req: Request, res: Response) => {
+    try {
+        userCtrl.addFriend(req.body);
+    } catch (err) {
+        res.sendStatus(500);
+    }
+    res.json({ok: true});
+})
 
 export default userRoutes;

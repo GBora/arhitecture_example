@@ -12,11 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const userAPI_1 = __importDefault(require("../persistence/userAPI"));
 const userService_1 = __importDefault(require("../services/userService"));
 class UserCtrl {
     constructor() {
-        this.userAPI = new userAPI_1.default();
         this.userService = new userService_1.default();
     }
     addNewUser(data) {
@@ -28,9 +26,13 @@ class UserCtrl {
     searchUser(data) {
         return __awaiter(this, void 0, void 0, function* () {
             // log interaction
-            // do a search by name if that is the input
+            // do a search by name if user wants to search by name
             return this.userService.searchUserByEmail(data);
         });
+    }
+    addFriend(data) {
+        // log interaction
+        return this.userService.addFriend(data);
     }
 }
 exports.default = UserCtrl;

@@ -9,32 +9,23 @@ let sequelize = new sequelize_1.Sequelize({
     dialect: 'sqlite',
     storage: configs_1.default.dbURL
 });
-class UserModel extends sequelize_1.Model {
+class FriendsModel extends sequelize_1.Model {
 }
-UserModel.init({
+FriendsModel.init({
     // attributes
-    EMAIL: {
-        type: sequelize_1.TEXT,
-        allowNull: false,
-        unique: true
-    },
-    FIRST_NAME: {
+    FRIEND1: {
         type: sequelize_1.TEXT,
         allowNull: false
     },
-    LAST_NAME: {
+    FRIEND2: {
         type: sequelize_1.TEXT,
         allowNull: false
     },
-    AVATAR: {
-        type: sequelize_1.TEXT,
-        allowNull: true,
-    }
 }, {
     sequelize,
-    modelName: 'USER',
-    tableName: 'USERS',
+    modelName: 'FRIENDSHIP',
+    tableName: 'FRIENDS',
     timestamps: false
 });
-exports.default = UserModel;
-//# sourceMappingURL=UserModel.js.map
+exports.default = FriendsModel;
+//# sourceMappingURL=FriendsModel.js.map

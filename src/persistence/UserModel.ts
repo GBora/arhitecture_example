@@ -1,11 +1,9 @@
 import { Sequelize, Model, TEXT } from "sequelize";
-
-// let storageLocation = 'C:\\Users\\george\\Documents\\GitHub\\architecture_example\\db\\database.db';
-let storageLocation = 'database.db';
+import configs from "../config/configs";
 
 let sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: storageLocation
+    storage: configs.dbURL
 });
 
 class UserModel extends Model {}
