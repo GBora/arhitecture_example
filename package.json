@@ -25,6 +25,9 @@
     "start": "node ./dist/main.js",
     "dev": "tsnd --respawn ./src/main.ts"
   },
+  "engines": {
+    "node": "11.14.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
