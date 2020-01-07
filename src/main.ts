@@ -16,5 +16,5 @@ app.use("/", routes);
 let port =process.env.PORT || configs.port;
 
 app.listen(port, () => {
-    console.log('server online');
+    console.log('server online on port', port);
 });
