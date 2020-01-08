@@ -6,10 +6,10 @@ export interface IUserService {
     saveUser(data: any): void;
     searchUserByEmail(data: any): Promise<IUser[]>;
     addFriend(data: any): void;
+    getFriends(data: any): Promise<IUser[]>;
 }
 
 export default class UserService implements IUserService {
-
 
     private userAPI: IUserAPI; 
 
@@ -46,6 +46,10 @@ export default class UserService implements IUserService {
         } catch (err) {
             throw err;
         }
+    }
+
+    getFriends(data: any): Promise<IUser[]> {
+        throw new Error("Method not implemented.");
     }
 
 }

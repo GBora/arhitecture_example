@@ -32,6 +32,15 @@ userRoutes.post("/add-friend", (req: Request, res: Response) => {
         res.sendStatus(500);
     }
     res.json({ok: true});
+});
+
+userRoutes.post("/get-friends", (req: Request, res: Response) => {
+    try {
+        userCtrl.addFriend(req.body);
+    } catch (err) {
+        res.sendStatus(500);
+    }
+    res.json({ ok: true });
 })
 
 export default userRoutes;
