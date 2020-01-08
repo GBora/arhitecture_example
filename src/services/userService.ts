@@ -48,8 +48,27 @@ export default class UserService implements IUserService {
         }
     }
 
-    getFriends(data: any): Promise<IUser[]> {
-        throw new Error("Method not implemented.");
+    async getFriends(data: any): Promise<IUser[]> {
+        try {
+            let email = data.email;
+
+            let rawUsers = await this.userAPI.getAllUsers();
+            let users: IUser[] = rawUsers.map(raw => UserConvertor.fromDBRow(raw));
+
+            let friendshipsRAW = await this.userAPI.searchFriendship(email);
+            let friends = friendshipsRAW.map((raw: any) => {
+                if (raw.dataValues.FRIEND1 != email) {
+                    return raw.dataValues.FRIEND1;
+                } else {
+                    return raw.dataValues.FRIEND2;
+                }
+            })
+            users = users.filter((user: IUser) => friends.indexOf(user.email) !== -1);
+
+            return Promise.resolve(users);
+        } catch (err) {
+            throw err;
+        }
     }
 
 }

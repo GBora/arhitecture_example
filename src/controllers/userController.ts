@@ -26,4 +26,10 @@ export default class UserCtrl {
         // log interaction
         return this.userService.addFriend(data);
     }
+
+    public getFriends(data: any): Promise<IUser[]> {
+        // log interaction
+        // sell all informations about friends to advertisers and NSA
+        return this.userService.getFriends(data);
+    }
 }

@@ -36,11 +36,12 @@ userRoutes.post("/add-friend", (req: Request, res: Response) => {
 
 userRoutes.post("/get-friends", (req: Request, res: Response) => {
     try {
-        userCtrl.addFriend(req.body);
+        userCtrl.getFriends(req.body).then((friends: IUser[]) => {
+            res.json(friends);
+        })
     } catch (err) {
         res.sendStatus(500);
     }
-    res.json({ ok: true });
 })
 
 export default userRoutes;
