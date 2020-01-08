@@ -51,6 +51,29 @@ class UserService {
             }
         });
     }
+    getFriends(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let email = data.email;
+                let rawUsers = yield this.userAPI.getAllUsers();
+                let users = rawUsers.map(raw => userConverter_1.default.fromDBRow(raw));
+                let friendshipsRAW = yield this.userAPI.searchFriendship(email);
+                let friends = friendshipsRAW.map((raw) => {
+                    if (raw.dataValues.FRIEND1 != email) {
+                        return raw.dataValues.FRIEND1;
+                    }
+                    else {
+                        return raw.dataValues.FRIEND2;
+                    }
+                });
+                users = users.filter((user) => friends.indexOf(user.email) !== -1);
+                return Promise.resolve(users);
+            }
+            catch (err) {
+                throw err;
+            }
+        });
+    }
 }
 exports.default = UserService;
 //# sourceMappingURL=userService.js.map

@@ -35,5 +35,15 @@ userRoutes.post("/add-friend", (req, res) => {
     }
     res.json({ ok: true });
 });
+userRoutes.post("/get-friends", (req, res) => {
+    try {
+        userCtrl.getFriends(req.body).then((friends) => {
+            res.json(friends);
+        });
+    }
+    catch (err) {
+        res.sendStatus(500);
+    }
+});
 exports.default = userRoutes;
 //# sourceMappingURL=userRoutes.js.map

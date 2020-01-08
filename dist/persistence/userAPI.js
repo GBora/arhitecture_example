@@ -41,6 +41,9 @@ class userAPI {
             }
         });
     }
+    getAllUsers() {
+        return UserModel_1.default.findAll();
+    }
     addFriendship(person1, person2) {
         return __awaiter(this, void 0, void 0, function* () {
             yield FriendsModel_1.default.sync().then(() => {
@@ -54,6 +57,13 @@ class userAPI {
                     throw err;
                 }
             });
+        });
+    }
+    searchFriendship(email) {
+        return FriendsModel_1.default.findAll({
+            where: {
+                [sequelize_1.Op.or]: [{ FRIEND1: email }, { FRIEND2: email }]
+            }
         });
     }
 }
