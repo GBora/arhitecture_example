@@ -30,15 +30,6 @@ class UserCtrl {
             return this.userService.searchUserByEmail(data);
         });
     }
-    addFriend(data) {
-        // log interaction
-        return this.userService.addFriend(data);
-    }
-    getFriends(data) {
-        // log interaction
-        // sell all informations about friends to advertisers and NSA
-        return this.userService.getFriends(data);
-    }
 }
 exports.default = UserCtrl;
 //# sourceMappingURL=userController.js.map
