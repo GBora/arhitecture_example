@@ -11,5 +11,9 @@ messagesRoutes.post("/add-message", (req, res) => {
     messageCtrl.addMessage(req.body);
     res.sendStatus(200);
 });
+messagesRoutes.post("/get-conversation", (req, res) => {
+    messageCtrl.addMessage(req.body);
+    res.sendStatus(200);
+});
 exports.default = messagesRoutes;
 //# sourceMappingURL=messagesRoutes.js.map
