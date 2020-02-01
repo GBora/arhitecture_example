@@ -1,4 +1,6 @@
 import IMessage from "../models/IMessage";
+import { IMessageAPI } from "../persistence/messageAPI";
+import messageAPI from "../persistence/messageAPI";
 
 export interface IMessageService {
     addMessage(message: IMessage): void
@@ -6,8 +8,14 @@ export interface IMessageService {
 
 export class MessageService implements IMessageService {
 
+    private messageAPI: IMessageAPI = new messageAPI();
+
     addMessage(message: IMessage): void {
-        console.log("the message", message);
+        try {
+            this.messageAPI.saveMessage(message);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
 }

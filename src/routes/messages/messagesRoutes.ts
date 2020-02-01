@@ -10,4 +10,9 @@ messagesRoutes.post("/add-message", (req: Request, res: Response) => {
     res.sendStatus(200);
 });
 
+messagesRoutes.post("/get-conversation", (req: Request, res: Response) => {
+    messageCtrl.addMessage(req.body);
+    res.sendStatus(200);
+});
+
 export default messagesRoutes;
