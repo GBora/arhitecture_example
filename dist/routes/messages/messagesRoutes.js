@@ -9,11 +9,17 @@ const messagesRoutes = express_1.Router();
 const messageCtrl = new messagesController_1.default();
 messagesRoutes.post("/add-message", (req, res) => {
     messageCtrl.addMessage(req.body);
-    res.sendStatus(200);
+    res.json({ success: true });
 });
 messagesRoutes.post("/get-conversation", (req, res) => {
-    messageCtrl.addMessage(req.body);
-    res.sendStatus(200);
+    try {
+        messageCtrl.getConversation(req.body).then((messages) => {
+            res.json(messages);
+        });
+    }
+    catch (_a) {
+        res.sendStatus(500);
+    }
 });
 exports.default = messagesRoutes;
 //# sourceMappingURL=messagesRoutes.js.map

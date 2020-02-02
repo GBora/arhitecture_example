@@ -19,8 +19,8 @@ class messageAPI {
             yield MessageModel_1.default.sync().then(() => {
                 try {
                     return MessageModel_1.default.create({
-                        FROM: message.from,
-                        TO: message.to,
+                        SENDER: message.from,
+                        RECIPIENT: message.to,
                         CONTENT: message.content
                     });
                 }

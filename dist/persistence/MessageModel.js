@@ -17,11 +17,11 @@ MessageModel.init({
         type: sequelize_1.TEXT,
         allowNull: false
     },
-    FROM: {
+    SENDER: {
         type: sequelize_1.TEXT,
         allowNull: false
     },
-    TO: {
+    RECIPIENT: {
         type: sequelize_1.TEXT,
         allowNull: false
     },

@@ -8,6 +8,9 @@ class MessagesCtrl {
     addMessage(data) {
         this.messageService.addMessage(data);
     }
+    getConversation(data) {
+        return Promise.resolve([]);
+    }
 }
 exports.default = MessagesCtrl;
 //# sourceMappingURL=messagesController.js.map
