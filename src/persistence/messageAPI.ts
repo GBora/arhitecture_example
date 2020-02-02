@@ -12,8 +12,8 @@ export default class messageAPI implements IMessageAPI {
         await MessageModel.sync().then(() => {
             try {
                 return MessageModel.create({
-                    FROM: message.from,
-                    TO: message.to,
+                    SENDER: message.from,
+                    RECIPIENT: message.to,
                     CONTENT: message.content
                 })
             } catch (err) {

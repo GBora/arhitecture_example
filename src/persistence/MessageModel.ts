@@ -14,11 +14,11 @@ MessageModel.init({
     type: TEXT,
     allowNull: false
   },
-  FROM: {
+  SENDER: {
     type: TEXT,
     allowNull: false
   },
-  TO: {
+  RECIPIENT: {
     type: TEXT,
     allowNull: false
   },

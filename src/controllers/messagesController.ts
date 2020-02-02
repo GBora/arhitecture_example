@@ -1,4 +1,5 @@
 import { MessageService, IMessageService } from "../services/messageService"
+import IMessage from "../models/IMessage";
 
 export default class MessagesCtrl {
 
@@ -6,5 +7,9 @@ export default class MessagesCtrl {
 
     addMessage(data: any) {
         this.messageService.addMessage(data);
+    }
+
+    getConversation(data: any): Promise<IMessage[]> {
+        return Promise.resolve([]);
     }
 }
