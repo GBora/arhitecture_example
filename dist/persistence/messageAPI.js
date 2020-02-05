@@ -13,6 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const MessageModel_1 = __importDefault(require("./MessageModel"));
+const sequelize_1 = require("sequelize");
+const configs_1 = __importDefault(require("../config/configs"));
+let sequelize = new sequelize_1.Sequelize({
+    dialect: 'sqlite',
+    storage: configs_1.default.dbURL
+});
 class messageAPI {
     saveMessage(message) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -30,6 +36,18 @@ class messageAPI {
             }).catch((err) => {
                 console.error(err);
             });
+        });
+    }
+    getConversationMessages(user1, user2) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const [results, metadata] = yield sequelize.query(`
+            SELECT * FROM MESSAGES 
+            WHERE (SENDER=:user1 AND RECIPIENT=:user2)
+            OR (SENDER=:user2 AND RECIPIENT=:user1)
+        `, {
+                replacements: { user1: user1, user2: user2 }
+            });
+            return Promise.resolve(results);
         });
     }
 }

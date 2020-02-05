@@ -9,7 +9,7 @@ class MessagesCtrl {
         this.messageService.addMessage(data);
     }
     getConversation(data) {
-        return Promise.resolve([]);
+        return this.messageService.getConversation(data.user1, data.user2);
     }
 }
 exports.default = MessagesCtrl;
