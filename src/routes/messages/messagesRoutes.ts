@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import MessagesCtrl from "../../controllers/messagesController";
-import IMessage from "../../models/IMessage";
+import { IMessage } from "../../models/IMessage";
 
 const messagesRoutes = Router();
 

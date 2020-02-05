@@ -1,5 +1,5 @@
 import { MessageService, IMessageService } from "../services/messageService"
-import IMessage from "../models/IMessage";
+import { IMessage } from "../models/IMessage";
 
 export default class MessagesCtrl {
 
@@ -10,6 +10,6 @@ export default class MessagesCtrl {
     }
 
     getConversation(data: any): Promise<IMessage[]> {
-        return Promise.resolve([]);
+        return this.messageService.getConversation(data.user1, data.user2);
     }
 }

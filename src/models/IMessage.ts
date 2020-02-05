@@ -1,5 +1,7 @@
-export default interface IMessage {
-    content: string,
-    from: string,
-    to: string
-} 
+import IUser from "./IUser";
+
+export interface IMessage {
+    content: string;
+    sender: IUser;
+    receipient: IUser;
+}
