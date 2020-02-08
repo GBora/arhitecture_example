@@ -25,4 +25,14 @@ userRoutes.post("/search", (req: Request, res: Response) => {
     }
 });
 
+userRoutes.post("/login", (req: Request, res: Response) => {
+    try {
+        userCtrl.login(req.body).then((user: IUser) => {
+            res.json(user);
+        });
+    } catch (err) {
+        res.sendStatus(401);
+    }
+});
+
 export default userRoutes;

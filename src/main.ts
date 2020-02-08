@@ -12,8 +12,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/", routes);
+app.use(express.static("./public/"));
 
-let port =process.env.PORT || configs.port;
+let port = process.env.PORT || configs.port;
 
 app.listen(port, () => {
     console.log('server online on port', port);

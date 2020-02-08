@@ -21,4 +21,9 @@ export default class UserCtrl {
         // do a search by name if user wants to search by name
         return this.userService.searchUserByEmail(data);
     }
+
+    public async login(data: any): Promise<IUser> {
+        // log interaction
+        return this.userService.login(data);
+    }
 }

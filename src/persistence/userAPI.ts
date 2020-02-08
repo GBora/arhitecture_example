@@ -9,6 +9,7 @@ export interface IUserAPI {
     addFriendship(person1: string, person2: string): Promise<any>;
     searchFriendship(email: string): Promise<any>;
     getAllUsers(): Promise<any[]>;
+    loginUser(email: string): Promise<any>
 }
 
 export default class userAPI implements IUserAPI {
@@ -31,6 +32,16 @@ export default class userAPI implements IUserAPI {
             where: {
                 EMAIL: {
                     [Op.like]: "%" + email + "%"
+                }
+            }
+        })
+    }
+
+    loginUser(email: string) {
+        return UserModel.findOne({
+            where: {
+                EMAIL: {
+                    [Op.is]: email
                 }
             }
         })

@@ -7,6 +7,7 @@ export interface IUserService {
     searchUserByEmail(data: any): Promise<IUser[]>;
     addFriend(data: any): void;
     getFriends(data: any): Promise<IUser[]>;
+    login(data: any): Promise<IUser>;
 }
 
 export default class UserService implements IUserService {
@@ -71,4 +72,15 @@ export default class UserService implements IUserService {
         }
     }
 
+    async login(data: any): Promise<IUser> {
+        try {
+            let email = data.email;
+            let rawUser = await this.userAPI.loginUser(email);
+            if (rawUser) {
+                return Promise.resolve(UserConvertor.fromDBRow(rawUser));
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 }
