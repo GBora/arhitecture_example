@@ -12,6 +12,7 @@ const app = express_1.default();
 app.use(body_parser_1.default.json());
 app.use(cors_1.default());
 app.use("/", routesIndex_1.default);
+app.use(express_1.default.static("./public/"));
 let port = process.env.PORT || configs_1.default.port;
 app.listen(port, () => {
     console.log('server online on port', port);

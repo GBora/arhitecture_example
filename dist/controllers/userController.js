@@ -30,6 +30,12 @@ class UserCtrl {
             return this.userService.searchUserByEmail(data);
         });
     }
+    login(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // log interaction
+            return this.userService.login(data);
+        });
+    }
 }
 exports.default = UserCtrl;
 //# sourceMappingURL=userController.js.map

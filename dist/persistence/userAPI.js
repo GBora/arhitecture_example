@@ -41,6 +41,15 @@ class userAPI {
             }
         });
     }
+    loginUser(email) {
+        return UserModel_1.default.findOne({
+            where: {
+                EMAIL: {
+                    [sequelize_1.Op.is]: email
+                }
+            }
+        });
+    }
     getAllUsers() {
         return UserModel_1.default.findAll();
     }

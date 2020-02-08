@@ -74,6 +74,20 @@ class UserService {
             }
         });
     }
+    login(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let email = data.email;
+                let rawUser = yield this.userAPI.loginUser(email);
+                if (rawUser) {
+                    return Promise.resolve(userConverter_1.default.fromDBRow(rawUser));
+                }
+            }
+            catch (err) {
+                throw err;
+            }
+        });
+    }
 }
 exports.default = UserService;
 //# sourceMappingURL=userService.js.map

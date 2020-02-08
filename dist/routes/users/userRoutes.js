@@ -26,5 +26,15 @@ userRoutes.post("/search", (req, res) => {
         res.sendStatus(500);
     }
 });
+userRoutes.post("/login", (req, res) => {
+    try {
+        userCtrl.login(req.body).then((user) => {
+            res.json(user);
+        });
+    }
+    catch (err) {
+        res.sendStatus(401);
+    }
+});
 exports.default = userRoutes;
 //# sourceMappingURL=userRoutes.js.map
