@@ -36,6 +36,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/angular7-pubsub/node_modules/@angular/core/fesm2015 lazy recursive":
+  /*!************************************************************************************************!*\
+    !*** ./node_modules/angular7-pubsub/node_modules/@angular/core/fesm2015 lazy namespace object ***!
+    \************************************************************************************************/
+
+  /*! no static exports found */
+
+  /***/
+  function node_modulesAngular7PubsubNode_modulesAngularCoreFesm2015LazyRecursive(module, exports) {
+    function webpackEmptyAsyncContext(req) {
+      // Here Promise.resolve().then() is used instead of new Promise() to prevent
+      // uncaught exception popping up in devtools
+      return Promise.resolve().then(function () {
+        var e = new Error("Cannot find module '" + req + "'");
+        e.code = 'MODULE_NOT_FOUND';
+        throw e;
+      });
+    }
+
+    webpackEmptyAsyncContext.keys = function () {
+      return [];
+    };
+
+    webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+    module.exports = webpackEmptyAsyncContext;
+    webpackEmptyAsyncContext.id = "./node_modules/angular7-pubsub/node_modules/@angular/core/fesm2015 lazy recursive";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
   /*!**************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -51,7 +81,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-sm bg-success navbar-light\">\n  <h3>Guarded Eyrie</h3>\n</nav>\n\n<div class=\"container p-5\">\n  <router-outlet></router-outlet>\n</div>";
+    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-sm bg-success navbar-light\">\n  <h3>Guarded Eyrie</h3>\n  <div *ngIf=\"user\" class=\"ml-auto user-menu\" (click)=\"promptLogout()\">\n    {{ user.firstName[0] }} {{ user.lastName[0] }}\n  </div>\n</nav>\n\n<div class=\"container p-5\">\n  <router-outlet></router-outlet>\n</div>\n";
     /***/
   },
 
@@ -76,6 +106,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/dialog-form/dialog-form.component.html":
+  /*!**********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog-form/dialog-form.component.html ***!
+    \**********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppDialogFormDialogFormComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<form class=\"form m-0 p-0 ml-5\">\n  <div class=\"form-group \">\n      <input type=\"text\"\n            class=\"form-control reply-input\"\n            (keyup)=\"reply($event)\"\n            name=\"currentReply\"\n            [(ngModel)]=\"currentReply\">\n  </div>\n</form>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/dialog-message/dialog-message.component.html":
   /*!****************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dialog-message/dialog-message.component.html ***!
@@ -91,7 +141,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"ml-5 p-3 dialog-message\">\n  {{ content }}\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"ml-5 p-3 dialog-message\" [class.self]=\"isSelf\">\n  {{ content }}\n</div>\n";
     /***/
   },
 
@@ -111,7 +161,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"dialog-user-avatar\">\n  {{ user.firstName[0].toUpperCase() }} {{ user.lastName[0].toUpperCase() }}\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"dialog-user-avatar\" [class.self]=\"isSelf\">\n  {{ user.firstName[0].toUpperCase() }} {{ user.lastName[0].toUpperCase() }}\n</div>\n";
     /***/
   },
 
@@ -171,7 +221,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<div>\n    <div *ngIf=\"messages.length\" class=\"pl-3\">\n        <div *ngFor=\"let msg of messages\" class=\"row mt-3\">\n          <div class=\"col-9\">\n            <app-dialog-message [content]=\"msg.content\"></app-dialog-message>\n          </div>\n          <div class=\"col-3\">\n            <app-dialog-user-avatar [user]=\"msg.sender\"></app-dialog-user-avatar>\n          </div>\n        </div>\n    </div>\n    <div class=\"pt-3\">\n        <form class=\"form m-0 p-0\">\n            <div class=\"form-group col-12\">\n                <input type=\"text\"\n                       class=\"form-control reply-input\"\n                       (keyup)=\"reply($event)\"\n                       name=\"currentReply\"\n                       [(ngModel)]=\"currentReply\">\n            </div>\n        </form>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "\n<div>\n    <div *ngIf=\"messages.length\" class=\"pl-3\">\n        <div *ngFor=\"let msg of messages\" class=\"row mt-3\">\n          <div class=\"col-9\">\n            <app-dialog-message [content]=\"msg.content\"\n                                [isSelf]=\"msg.sender.email === self.email\">\n            </app-dialog-message>\n          </div>\n          <div class=\"col-3\">\n            <app-dialog-user-avatar [user]=\"msg.sender\"\n                                    [isSelf]=\"msg.sender.email === self.email\">\n            </app-dialog-user-avatar>\n          </div>\n        </div>\n    </div>\n    <div class=\"pl-3\">\n      <div class=\"row mt-3\">\n        <div class=\"col-9\">\n          <app-dialog-form (messageAdded)=\"postReply($event)\"></app-dialog-form>\n        </div>\n      </div>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -821,7 +871,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
     }, {
       path: 'conversation',
-      component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"]
+      component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"],
+      children: [{
+        path: '',
+        component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"]
+      }, {
+        path: ':id',
+        component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"]
+      }]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -851,7 +908,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".navbar {\n  color: #fff !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksc0JBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gICAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcclxufSIsIi5uYXZiYXIge1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".navbar {\n  color: #fff !important;\n}\n\n.user-menu {\n  border: 1px solid #fff;\n  padding: 0.5rem;\n  border-radius: 50%;\n  font-weight: 900;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksc0JBQUE7QUNDSjs7QURFQTtFQUNFLHNCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gICAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnVzZXItbWVudSB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGZvbnQtd2VpZ2h0OiA5MDA7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbiIsIi5uYXZiYXIge1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xufVxuXG4udXNlci1tZW51IHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcbiAgcGFkZGluZzogMC41cmVtO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGZvbnQtc2l6ZTogMS41cmVtO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */";
     /***/
   },
 
@@ -886,11 +943,73 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
 
-    var AppComponent = function AppComponent() {
-      _classCallCheck(this, AppComponent);
 
-      this.title = 'architecture-front';
+    var _services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./services/user/user.service */
+    "./src/app/services/user/user.service.ts");
+    /* harmony import */
+
+
+    var angular7_pubsub__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! angular7-pubsub */
+    "./node_modules/angular7-pubsub/esm/src/index.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    var AppComponent =
+    /*#__PURE__*/
+    function () {
+      function AppComponent(userService, pubsub, router) {
+        _classCallCheck(this, AppComponent);
+
+        this.userService = userService;
+        this.pubsub = pubsub;
+        this.router = router;
+        this.title = 'Guarded Eyrie';
+      }
+
+      _createClass(AppComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.user = this.userService.getCurrentUser();
+          this.userSub = this.pubsub.$sub('user-change').subscribe(function (event) {
+            _this.user = event;
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.userSub.unsubscribe();
+        }
+      }, {
+        key: "promptLogout",
+        value: function promptLogout() {
+          if (confirm('Logout ?')) {
+            this.userService.deleteCurrentUser();
+            this.router.navigate(['/signup']);
+          }
+        }
+      }]);
+
+      return AppComponent;
+    }();
+
+    AppComponent.ctorParameters = function () {
+      return [{
+        type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+      }, {
+        type: angular7_pubsub__WEBPACK_IMPORTED_MODULE_3__["PubSubService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }];
     };
 
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -969,73 +1088,85 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var angular7_pubsub__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! angular7-pubsub */
+    "./node_modules/angular7-pubsub/esm/src/index.js");
+    /* harmony import */
+
+
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _signup_signup_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./signup/signup.component */
     "./src/app/signup/signup.component.ts");
     /* harmony import */
 
 
-    var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./login/login.component */
     "./src/app/login/login.component.ts");
     /* harmony import */
 
 
-    var _services_user_user_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _services_user_user_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./services/user/user.service */
     "./src/app/services/user/user.service.ts");
     /* harmony import */
 
 
-    var _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./conversation/conversation.component */
     "./src/app/conversation/conversation.component.ts");
     /* harmony import */
 
 
-    var _friend_search_friend_search_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _friend_search_friend_search_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./friend-search/friend-search.component */
     "./src/app/friend-search/friend-search.component.ts");
     /* harmony import */
 
 
-    var _message_thread_message_thread_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _message_thread_message_thread_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./message-thread/message-thread.component */
     "./src/app/message-thread/message-thread.component.ts");
     /* harmony import */
 
 
-    var _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! ./dialog-message/dialog-message.component */
     "./src/app/dialog-message/dialog-message.component.ts");
     /* harmony import */
 
 
-    var _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    var _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./dialog-user-avatar/dialog-user-avatar.component */
     "./src/app/dialog-user-avatar/dialog-user-avatar.component.ts");
+    /* harmony import */
+
+
+    var _dialog_form_dialog_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./dialog-form/dialog-form.component */
+    "./src/app/dialog-form/dialog-form.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__["SignupComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_12__["ConversationComponent"], _friend_search_friend_search_component__WEBPACK_IMPORTED_MODULE_13__["FriendSearchComponent"], _message_thread_message_thread_component__WEBPACK_IMPORTED_MODULE_14__["MessageThreadComponent"], _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_15__["DialogMessageComponent"], _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_16__["DialogUserAvatarComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbTypeaheadModule"]],
-      providers: [_services_user_user_service__WEBPACK_IMPORTED_MODULE_11__["UserService"]],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"], _signup_signup_component__WEBPACK_IMPORTED_MODULE_10__["SignupComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"], _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_13__["ConversationComponent"], _friend_search_friend_search_component__WEBPACK_IMPORTED_MODULE_14__["FriendSearchComponent"], _message_thread_message_thread_component__WEBPACK_IMPORTED_MODULE_15__["MessageThreadComponent"], _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_16__["DialogMessageComponent"], _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_17__["DialogUserAvatarComponent"], _dialog_form_dialog_form_component__WEBPACK_IMPORTED_MODULE_18__["DialogFormComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbTypeaheadModule"], angular7_pubsub__WEBPACK_IMPORTED_MODULE_7__["PubSubModule"].forRoot()],
+      providers: [_services_user_user_service__WEBPACK_IMPORTED_MODULE_12__["UserService"]],
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
     })], AppModule);
     /***/
   },
@@ -1061,8 +1192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     var configs = {
-      // baseURL : 'https://guarded-eyrie-20015.herokuapp.com',
-      baseURL: 'http://localhost:8080'
+      baseURL: 'https://guarded-eyrie-20015.herokuapp.com/api'
     };
     /* harmony default export */
 
@@ -1127,26 +1257,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../services/user/user.service */
     "./src/app/services/user/user.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var ConversationComponent =
     /*#__PURE__*/
     function () {
-      function ConversationComponent(userService) {
+      function ConversationComponent(userService, route, router) {
         _classCallCheck(this, ConversationComponent);
 
+        this.userService = userService;
+        this.route = route;
+        this.router = router;
         this.showSearch = false;
         this.showThread = false;
         this.friends = [];
-        this.userService = userService;
       }
 
       _createClass(ConversationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this = this;
+          var _this2 = this;
 
+          var urlEmail = this.route.snapshot.queryParams.email;
           this.userService.getFriends().subscribe(function (el) {
-            _this.friends = el;
+            _this2.friends = el;
+
+            if (urlEmail) {
+              _this2.friends.forEach(function (friend) {
+                if (friend.email === urlEmail) {
+                  _this2.startConv(friend);
+                }
+              });
+            }
           });
         }
       }, {
@@ -1157,16 +1304,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addedFriend",
         value: function addedFriend(friend) {
-          var _this2 = this;
+          var _this3 = this;
 
           this.showSearch = false;
           this.userService.addFriend(friend.email).then(function (res) {
-            _this2.friends.push(friend);
+            _this3.friends.push(friend);
           });
         }
       }, {
         key: "startConv",
         value: function startConv(friend) {
+          this.router.navigate(['/conversation'], {
+            queryParams: {
+              email: friend.email
+            }
+          });
           this.showThread = false;
           this.friendConversing = friend;
           this.showThread = true;
@@ -1179,6 +1331,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ConversationComponent.ctorParameters = function () {
       return [{
         type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }];
     };
 
@@ -1191,6 +1347,95 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./conversation.component.scss */
       "./src/app/conversation/conversation.component.scss")).default]
     })], ConversationComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/dialog-form/dialog-form.component.scss":
+  /*!********************************************************!*\
+    !*** ./src/app/dialog-form/dialog-form.component.scss ***!
+    \********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppDialogFormDialogFormComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RpYWxvZy1mb3JtL2RpYWxvZy1mb3JtLmNvbXBvbmVudC5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/dialog-form/dialog-form.component.ts":
+  /*!******************************************************!*\
+    !*** ./src/app/dialog-form/dialog-form.component.ts ***!
+    \******************************************************/
+
+  /*! exports provided: DialogFormComponent */
+
+  /***/
+  function srcAppDialogFormDialogFormComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DialogFormComponent", function () {
+      return DialogFormComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var DialogFormComponent =
+    /*#__PURE__*/
+    function () {
+      function DialogFormComponent() {
+        _classCallCheck(this, DialogFormComponent);
+
+        this.currentReply = '';
+        this.messageAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+      }
+
+      _createClass(DialogFormComponent, [{
+        key: "reply",
+        value: function reply(event) {
+          if (event.code === 'Enter') {
+            var messageCopy = '' + this.currentReply;
+            this.currentReply = '';
+            this.messageAdded.emit(messageCopy);
+          }
+        }
+      }]);
+
+      return DialogFormComponent;
+    }();
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], DialogFormComponent.prototype, "messageAdded", void 0);
+    DialogFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-dialog-form',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./dialog-form.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/dialog-form/dialog-form.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./dialog-form.component.scss */
+      "./src/app/dialog-form/dialog-form.component.scss")).default]
+    })], DialogFormComponent);
     /***/
   },
 
@@ -1210,7 +1455,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".dialog-message {\n  border: 1px solid #ccc;\n  border-radius: 0.4em;\n}\n\n.dialog-message {\n  position: relative;\n  background: #ccc;\n  color: #fff;\n}\n\n.dialog-message:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGRpYWxvZy1tZXNzYWdlXFxkaWFsb2ctbWVzc2FnZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLG9CQUFBO0FDQ0Y7O0FERUE7RUFDQyxrQkFBQTtFQUNDLGdCQUFBO0VBQ0EsV0FBQTtBQ0NGOztBREdBO0VBQ0MsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLGlDQUFBO0VBQ0EsdUJBQUE7RUFDQSxlQUFBO0VBQ0Esb0JBQUE7RUFDQSxzQkFBQTtBQ0FEIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGlhbG9nLW1lc3NhZ2Uge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgYm9yZGVyLXJhZGl1czogLjRlbTtcclxufVxyXG5cclxuLmRpYWxvZy1tZXNzYWdlIHtcclxuXHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgYmFja2dyb3VuZDogI2NjYztcclxuICBjb2xvcjogI2ZmZjtcclxuXHQvLyBib3JkZXItcmFkaXVzOiAuNGVtO1xyXG59XHJcblxyXG4uZGlhbG9nLW1lc3NhZ2U6YWZ0ZXIge1xyXG5cdGNvbnRlbnQ6ICcnO1xyXG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRyaWdodDogMDtcclxuXHR0b3A6IDUwJTtcclxuXHR3aWR0aDogMDtcclxuXHRoZWlnaHQ6IDA7XHJcblx0Ym9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xyXG5cdGJvcmRlci1sZWZ0LWNvbG9yOiAjY2NjO1xyXG5cdGJvcmRlci1yaWdodDogMDtcclxuXHRtYXJnaW4tdG9wOiAtMC41NjJlbTtcclxuXHRtYXJnaW4tcmlnaHQ6IC0wLjU2MmVtO1xyXG59XHJcbiIsIi5kaWFsb2ctbWVzc2FnZSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDAuNGVtO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2Uge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQ6ICNjY2M7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2U6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItbGVmdC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJpZ2h0OiAwO1xuICBtYXJnaW4tdG9wOiAtMC41NjJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".dialog-message {\n  border: 1px solid #ccc;\n  border-radius: 0.4em;\n}\n\n.dialog-message {\n  position: relative;\n  background: #ccc;\n  color: #fff;\n}\n\n.dialog-message.self {\n  position: relative;\n  background: #fff;\n  color: #ccc;\n}\n\n.dialog-message:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n\n.dialog-message.self:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGRpYWxvZy1tZXNzYWdlXFxkaWFsb2ctbWVzc2FnZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLG9CQUFBO0FDQ0Y7O0FERUE7RUFDQyxrQkFBQTtFQUNDLGdCQUFBO0VBQ0EsV0FBQTtBQ0NGOztBREdBO0VBQ0Msa0JBQUE7RUFDQyxnQkFBQTtFQUNBLFdBQUE7QUNBRjs7QURJQTtFQUNDLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxpQ0FBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7QUNERDs7QURJQTtFQUNDLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxpQ0FBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7QUNERCIsImZpbGUiOiJzcmMvYXBwL2RpYWxvZy1tZXNzYWdlL2RpYWxvZy1tZXNzYWdlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRpYWxvZy1tZXNzYWdlIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IC40ZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZSB7XHJcblx0cG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGJhY2tncm91bmQ6ICNjY2M7XHJcbiAgY29sb3I6ICNmZmY7XHJcblx0Ly8gYm9yZGVyLXJhZGl1czogLjRlbTtcclxufVxyXG5cclxuLmRpYWxvZy1tZXNzYWdlLnNlbGYge1xyXG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG4gIGNvbG9yOiAjY2NjO1xyXG5cdC8vIGJvcmRlci1yYWRpdXM6IC40ZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZTphZnRlciB7XHJcblx0Y29udGVudDogJyc7XHJcblx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdHJpZ2h0OiAwO1xyXG5cdHRvcDogNTAlO1xyXG5cdHdpZHRoOiAwO1xyXG5cdGhlaWdodDogMDtcclxuXHRib3JkZXI6IDAuNTYzZW0gc29saWQgdHJhbnNwYXJlbnQ7XHJcblx0Ym9yZGVyLWxlZnQtY29sb3I6ICNjY2M7XHJcblx0Ym9yZGVyLXJpZ2h0OiAwO1xyXG5cdG1hcmdpbi10b3A6IC0wLjU2MmVtO1xyXG5cdG1hcmdpbi1yaWdodDogLTAuNTYyZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZS5zZWxmOmFmdGVyIHtcclxuXHRjb250ZW50OiAnJztcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0cmlnaHQ6IDA7XHJcblx0dG9wOiA1MCU7XHJcblx0d2lkdGg6IDA7XHJcblx0aGVpZ2h0OiAwO1xyXG5cdGJvcmRlcjogMC41NjNlbSBzb2xpZCB0cmFuc3BhcmVudDtcclxuXHRib3JkZXItbGVmdC1jb2xvcjogI2NjYztcclxuXHRib3JkZXItcmlnaHQ6IDA7XHJcblx0bWFyZ2luLXRvcDogLTAuNTYyZW07XHJcblx0bWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcclxufVxyXG4iLCIuZGlhbG9nLW1lc3NhZ2Uge1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBib3JkZXItcmFkaXVzOiAwLjRlbTtcbn1cblxuLmRpYWxvZy1tZXNzYWdlIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kOiAjY2NjO1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmRpYWxvZy1tZXNzYWdlLnNlbGYge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGNvbG9yOiAjY2NjO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2U6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItbGVmdC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJpZ2h0OiAwO1xuICBtYXJnaW4tdG9wOiAtMC41NjJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn1cblxuLmRpYWxvZy1tZXNzYWdlLnNlbGY6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItbGVmdC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJpZ2h0OiAwO1xuICBtYXJnaW4tdG9wOiAtMC41NjJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn0iXX0= */";
     /***/
   },
 
@@ -1251,6 +1496,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], DialogMessageComponent.prototype, "content", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], DialogMessageComponent.prototype, "isSelf", void 0);
     DialogMessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-dialog-message',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1279,7 +1525,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".dialog-user-avatar {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL0M6XFxVc2Vyc1xcZ2VvcmdlXFxEb2N1bWVudHNcXEdpdEh1YlxcYXJjaGl0ZWN0dXJlLWZyb250L3NyY1xcYXBwXFxkaWFsb2ctdXNlci1hdmF0YXJcXGRpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaWFsb2ctdXNlci1hdmF0YXIge1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XHJcbiAgZm9udC13ZWlnaHQ6IDkwMDtcclxuICBjb2xvcjogI2NjYztcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMC4yNXJlbTtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICB3aWR0aDogNHJlbTtcclxuICBoZWlnaHQ6IDRyZW07XHJcbn1cclxuIiwiLmRpYWxvZy11c2VyLWF2YXRhciB7XG4gIGZvbnQtc2l6ZTogMS41cmVtO1xuICBsaW5lLWhlaWdodDogMy41cmVtO1xuICBmb250LXdlaWdodDogOTAwO1xuICBjb2xvcjogI2NjYztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDAuMjVyZW07XG4gIG1hcmdpbjogMCBhdXRvO1xuICB3aWR0aDogNHJlbTtcbiAgaGVpZ2h0OiA0cmVtO1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".dialog-user-avatar {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  color: #fff;\n  background-color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n\n.dialog-user-avatar.self {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  background-color: transparent;\n  color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL0M6XFxVc2Vyc1xcZ2VvcmdlXFxEb2N1bWVudHNcXEdpdEh1YlxcYXJjaGl0ZWN0dXJlLWZyb250L3NyY1xcYXBwXFxkaWFsb2ctdXNlci1hdmF0YXJcXGRpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDQ0Y7O0FERUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaWFsb2ctdXNlci1hdmF0YXIge1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XHJcbiAgZm9udC13ZWlnaHQ6IDkwMDtcclxuICBjb2xvcjogI2ZmZjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiAwLjI1cmVtO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIHdpZHRoOiA0cmVtO1xyXG4gIGhlaWdodDogNHJlbTtcclxufVxyXG5cclxuLmRpYWxvZy11c2VyLWF2YXRhci5zZWxmIHtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBsaW5lLWhlaWdodDogMy41cmVtO1xyXG4gIGZvbnQtd2VpZ2h0OiA5MDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6ICNjY2M7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDAuMjVyZW07XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgd2lkdGg6IDRyZW07XHJcbiAgaGVpZ2h0OiA0cmVtO1xyXG59XHJcbiIsIi5kaWFsb2ctdXNlci1hdmF0YXIge1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgbGluZS1oZWlnaHQ6IDMuNXJlbTtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiAwLjI1cmVtO1xuICBtYXJnaW46IDAgYXV0bztcbiAgd2lkdGg6IDRyZW07XG4gIGhlaWdodDogNHJlbTtcbn1cblxuLmRpYWxvZy11c2VyLWF2YXRhci5zZWxmIHtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBjb2xvcjogI2NjYztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDAuMjVyZW07XG4gIG1hcmdpbjogMCBhdXRvO1xuICB3aWR0aDogNHJlbTtcbiAgaGVpZ2h0OiA0cmVtO1xufSJdfQ== */";
     /***/
   },
 
@@ -1320,6 +1566,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], DialogUserAvatarComponent.prototype, "user", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], DialogUserAvatarComponent.prototype, "isSelf", void 0);
     DialogUserAvatarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-dialog-user-avatar',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1400,7 +1647,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function FriendSearchComponent(userService) {
-        var _this3 = this;
+        var _this4 = this;
 
         _classCallCheck(this, FriendSearchComponent);
 
@@ -1408,7 +1655,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.search = function (text$) {
           return text$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(200), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) {
-            return _this3.userService.search(term);
+            return _this4.userService.search(term);
           }));
         };
 
@@ -1515,15 +1762,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../services/user/user.service */
     "./src/app/services/user/user.service.ts");
+    /* harmony import */
+
+
+    var angular7_pubsub__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! angular7-pubsub */
+    "./node_modules/angular7-pubsub/esm/src/index.js");
 
     var LoginComponent =
     /*#__PURE__*/
     function () {
-      function LoginComponent(router, userService) {
+      function LoginComponent(router, userService, pubsub) {
         _classCallCheck(this, LoginComponent);
 
         this.router = router;
         this.userService = userService;
+        this.pubsub = pubsub;
       }
 
       _createClass(LoginComponent, [{
@@ -1534,8 +1788,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "login",
         value: function login() {
-          this.userService.setCurentUser(this.email);
-          this.router.navigate(['/conversation']);
+          var _this5 = this;
+
+          this.userService.loginUser(this.email).then(function (user) {
+            _this5.userService.setCurentUser(user);
+
+            _this5.pubsub.$pub('user-change', user);
+
+            _this5.router.navigate(['/conversation']);
+          }, function (err) {
+            alert('Something went wrong, could not login.');
+          });
         }
       }]);
 
@@ -1547,6 +1810,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }, {
         type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+      }, {
+        type: angular7_pubsub__WEBPACK_IMPORTED_MODULE_4__["PubSubService"]
       }];
     };
 
@@ -1578,7 +1843,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".reply-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXG1lc3NhZ2UtdGhyZWFkXFxtZXNzYWdlLXRocmVhZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9tZXNzYWdlLXRocmVhZC9tZXNzYWdlLXRocmVhZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXBseS1pbnB1dCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufSIsIi5yZXBseS1pbnB1dCB7XG4gIHdpZHRoOiAxMDAlO1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".reply-input {\n  width: 100%;\n}\n\nform {\n  max-width: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXG1lc3NhZ2UtdGhyZWFkXFxtZXNzYWdlLXRocmVhZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0FDQ0o7O0FERUE7RUFDRSwwQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVwbHktaW5wdXQge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbmZvcm0ge1xyXG4gIG1heC13aWR0aDogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbiIsIi5yZXBseS1pbnB1dCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG5mb3JtIHtcbiAgbWF4LXdpZHRoOiBub25lICFpbXBvcnRhbnQ7XG59Il19 */";
     /***/
   },
 
@@ -1625,6 +1890,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../services/user/user.service */
     "./src/app/services/user/user.service.ts");
+    /* harmony import */
+
+
+    var _configs_configs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../configs/configs */
+    "./src/app/configs/configs.ts");
 
     var MessageThreadComponent =
     /*#__PURE__*/
@@ -1641,31 +1912,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MessageThreadComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this6 = this;
 
           this.messages = [];
-          this.messageService.getConversation(this.userService.getCurrentUser(), this.friend.email).then(function (res) {
-            _this4.messages = res;
+          this.self = this.userService.getCurrentUser();
+          this.messageService.getConversation(this.userService.getCurrentUser().email, this.friend.email).then(function (res) {
+            _this6.messages = res;
           });
+          var evtSource = new EventSource(_configs_configs__WEBPACK_IMPORTED_MODULE_4__["default"].baseURL + '/messages/conversation-stream');
+
+          evtSource.onmessage = function (e) {
+            console.log('connection message');
+            console.log(e.data);
+          };
+
+          evtSource.onerror = function (e) {
+            console.log('connection error');
+            console.log(e);
+            evtSource.close();
+          };
+
+          evtSource.onopen = function (e) {
+            console.log('connection open');
+            console.log(e);
+          };
         }
       }, {
-        key: "reply",
-        value: function reply(event) {
-          var _this5 = this;
+        key: "postReply",
+        value: function postReply(message) {
+          var _this7 = this;
 
-          if (event.code === 'Enter') {
-            var messageCopy = '' + this.currentReply;
-            this.currentReply = '';
-            this.messageService.addMessage({
-              to: this.friend.email,
-              content: messageCopy,
-              from: this.userService.getCurrentUser()
-            }).then(function () {
-              _this5.messageService.getConversation(_this5.userService.getCurrentUser(), _this5.friend.email).then(function (res) {
-                _this5.messages = res;
-              });
+          this.messageService.addMessage({
+            to: this.friend.email,
+            content: message,
+            from: this.userService.getCurrentUser().email
+          }).then(function () {
+            _this7.messageService.getConversation(_this7.userService.getCurrentUser().email, _this7.friend.email).then(function (res) {
+              _this7.messages = res;
             });
-          }
+          });
         }
       }]);
 
@@ -1836,9 +2121,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function UserService(http) {
         _classCallCheck(this, UserService);
 
-        this.http = http; // private base = 'http://localhost:8080';
-        // private base = 'https://guarded-eyrie-20015.herokuapp.com';
-
+        this.http = http;
         this.base = _configs_configs__WEBPACK_IMPORTED_MODULE_3__["default"].baseURL;
         this.options = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -1851,14 +2134,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(UserService, [{
         key: "signUpUser",
         value: function signUpUser(user) {
-          var url = this.base + '/users/new'; // const httpOptions = {
-          //   headers: new HttpHeaders({
-          //     'Content-Type': 'application/json',
-          //     'Response-Type': 'text'
-          //   })
-          // };
-
+          var url = this.base + '/users/new';
           return this.http.post(url, user, this.options).toPromise();
+        }
+      }, {
+        key: "loginUser",
+        value: function loginUser(email) {
+          var url = this.base + '/users/login';
+          var content = {
+            email: email
+          };
+          return this.http.post(url, content, this.options).toPromise();
         }
       }, {
         key: "search",
@@ -1884,15 +2170,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getFriends() {
           var url = this.base + '/friendship/get-friends';
           var request = {
-            email: this.getCurrentUser()
+            email: this.getCurrentUser().email
           };
           return this.http.post(url, request, this.options);
         }
       }, {
         key: "setCurentUser",
-        value: function setCurentUser(email) {
-          this.currentUser = email;
-          localStorage.setItem('user', email);
+        value: function setCurentUser(user) {
+          this.currentUser = user;
+          localStorage.setItem('user', JSON.stringify(user));
+        }
+      }, {
+        key: "deleteCurrentUser",
+        value: function deleteCurrentUser() {
+          this.currentUser = null;
+          localStorage.removeItem('user');
         }
       }, {
         key: "getCurrentUser",
@@ -1900,7 +2192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.currentUser) {
             return this.currentUser;
           } else {
-            return localStorage.getItem('user');
+            return JSON.parse(localStorage.getItem('user'));
           }
         }
       }]);
@@ -2000,11 +2292,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.email = '';
           this.lastName = '';
           this.firstName = '';
+
+          try {
+            var user = this.userService.getCurrentUser();
+
+            if (user) {
+              this.router.navigate(['/login']);
+            }
+          } catch (err) {
+            console.error(err);
+          }
         }
       }, {
         key: "signup",
         value: function signup() {
-          var _this6 = this;
+          var _this8 = this;
 
           var user = {
             email: this.email,
@@ -2015,7 +2317,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.userService.signUpUser(user).then(function (res) {
             console.log(res);
 
-            _this6.router.navigate(['/login']);
+            _this8.router.navigate(['/login']);
           });
         }
       }]);
