@@ -7,11 +7,12 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
+// import { Socket } from "socket.io";
 const routesIndex_1 = __importDefault(require("./routes/routesIndex"));
 const configs_1 = __importDefault(require("./config/configs"));
 const app = express_1.default();
 app.use(body_parser_1.default.json());
-app.use(cors_1.default());
+app.use(cors_1.default({ credentials: false, origin: true }));
 // The application will have it's routes on /api
 app.use("/api", routesIndex_1.default);
 app.use(express_1.default.static(path_1.default.join(__dirname + '/public/')));
