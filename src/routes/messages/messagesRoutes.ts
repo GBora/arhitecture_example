@@ -3,6 +3,8 @@ import MessagesCtrl from "../../controllers/messagesController";
 import { IMessage } from "../../models/IMessage";
 
 import PubSub from "pubsub-js";
+import { ISseService } from "../../services/sseService";
+import SseService from "../../services/sseService";
 
 const messagesRoutes = Router();
 
@@ -25,19 +27,24 @@ messagesRoutes.post("/get-conversation", (req: Request, res: Response) => {
     }
 });
 
-messagesRoutes.get("/conversation-stream", (req: Request, res: Response) => {
+const sseService: ISseService = new SseService();
 
-    // res.status(200).set({
-    //     "Content-Type": "text/event-stream",
-    //     "Connection": "keep-alive",
-    //     "Cache-Control": "no-cache"
-    // })
-
-    // var token = PubSub.subscribe('NEW MESSAGE', () => {
-    //     console.log('SUB')
-    //     res.write('bla bla');
-    // });
-
-});
+messagesRoutes.get("/sse", (req: Request, res: Response) => {
+	req.socket.setTimeout(Number.MAX_VALUE);
+	res.writeHead(200, {
+		'Content-Type': 'text/event-stream', // <- Important headers
+		'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'MIME-Type': 'text/event-stream'
+	});
+	res.write('\n');
+	(function () {
+        sseService.addUser(req.query.online, res);
+        sseService.getUserConnection(req.query.online).write("data: " + "hello " + req.query.online + "\n\n")
+		req.on("close", function () {
+            sseService.removeUser(req.query.online);
+		}); // <- Remove this client when he disconnects
+	})()
+})
 
 export default messagesRoutes;
