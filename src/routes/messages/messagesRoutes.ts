@@ -8,6 +8,9 @@ import SseService from "../../services/sseService";
 
 const messagesRoutes = Router();
 
+// const sseService: ISseService = new SseService();
+
+// const messageCtrl: MessagesCtrl = new MessagesCtrl(sseService);
 const messageCtrl: MessagesCtrl = new MessagesCtrl();
 
 messagesRoutes.post("/add-message", (req: Request, res: Response) => {
@@ -27,7 +30,6 @@ messagesRoutes.post("/get-conversation", (req: Request, res: Response) => {
     }
 });
 
-const sseService: ISseService = new SseService();
 
 messagesRoutes.get("/sse", (req: Request, res: Response) => {
 	req.socket.setTimeout(Number.MAX_VALUE);
@@ -38,13 +40,11 @@ messagesRoutes.get("/sse", (req: Request, res: Response) => {
         'MIME-Type': 'text/event-stream'
 	});
 	res.write('\n');
-	(function () {
-        sseService.addUser(req.query.online, res);
-        sseService.getUserConnection(req.query.online).write("data: " + "hello " + req.query.online + "\n\n")
-		req.on("close", function () {
-            sseService.removeUser(req.query.online);
-		}); // <- Remove this client when he disconnects
-	})()
+    SseService.addUser(req.query.online, res);
+    // SseService.getUserConnection(req.query.online).write("data: " + "hello " + req.query.online + "\n\n")
+    req.on("close", function () {
+        SseService.removeUser(req.query.online);
+    }); // <- Remove this client when he disconnects
 })
 
 export default messagesRoutes;

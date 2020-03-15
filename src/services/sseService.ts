@@ -4,23 +4,25 @@ export interface ISseService {
     getUserConnection(email: string): any;
 }
 
-export default class SseService implements ISseService {
+export default class SseService {
 
-    private activeUsers: any = {}
+    private static activeUsers: any = {}
 
-    addUser(email: string, connection: any): void {
+    static addUser(email: string, connection: any): void {
         this.activeUsers[email] = connection;
     }    
     
-    removeUser(email: string): void {
+    static removeUser(email: string): void {
         delete this.activeUsers[email];
     }
 
-    getUserConnection(email: string) {
+    static getUserConnection(email: string) {
         if (this.activeUsers[email]) {
             return this.activeUsers[email]
         } else {
-            throw new Error('User with email ' + email + ' is not currently connected.');
+            console.warn('User with email ' + email + ' is not currently connected.');
+            return null;
+            // throw new Error('User with email ' + email + ' is not currently connected.');
         }
 
     }
