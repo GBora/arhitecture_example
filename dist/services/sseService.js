@@ -1,23 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class SseService {
-    constructor() {
-        this.activeUsers = {};
-    }
-    addUser(email, connection) {
+    static addUser(email, connection) {
         this.activeUsers[email] = connection;
     }
-    removeUser(email) {
+    static removeUser(email) {
         delete this.activeUsers[email];
     }
-    getUserConnection(email) {
+    static getUserConnection(email) {
         if (this.activeUsers[email]) {
             return this.activeUsers[email];
         }
         else {
-            throw new Error('User with email ' + email + ' is not currently connected.');
+            console.warn('User with email ' + email + ' is not currently connected.');
+            return null;
+            // throw new Error('User with email ' + email + ' is not currently connected.');
         }
     }
 }
 exports.default = SseService;
+SseService.activeUsers = {};
 //# sourceMappingURL=sseService.js.map

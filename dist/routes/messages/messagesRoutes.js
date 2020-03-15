@@ -8,6 +8,8 @@ const messagesController_1 = __importDefault(require("../../controllers/messages
 const pubsub_js_1 = __importDefault(require("pubsub-js"));
 const sseService_1 = __importDefault(require("../../services/sseService"));
 const messagesRoutes = express_1.Router();
+// const sseService: ISseService = new SseService();
+// const messageCtrl: MessagesCtrl = new MessagesCtrl(sseService);
 const messageCtrl = new messagesController_1.default();
 messagesRoutes.post("/add-message", (req, res) => {
     messageCtrl.addMessage(req.body);
@@ -25,7 +27,6 @@ messagesRoutes.post("/get-conversation", (req, res) => {
         res.sendStatus(500);
     }
 });
-const sseService = new sseService_1.default();
 messagesRoutes.get("/sse", (req, res) => {
     req.socket.setTimeout(Number.MAX_VALUE);
     res.writeHead(200, {
@@ -35,13 +36,11 @@ messagesRoutes.get("/sse", (req, res) => {
         'MIME-Type': 'text/event-stream'
     });
     res.write('\n');
-    (function () {
-        sseService.addUser(req.query.online, res);
-        sseService.getUserConnection(req.query.online).write("data: " + "hello " + req.query.online + "\n\n");
-        req.on("close", function () {
-            sseService.removeUser(req.query.online);
-        }); // <- Remove this client when he disconnects
-    })();
+    sseService_1.default.addUser(req.query.online, res);
+    // SseService.getUserConnection(req.query.online).write("data: " + "hello " + req.query.online + "\n\n")
+    req.on("close", function () {
+        sseService_1.default.removeUser(req.query.online);
+    }); // <- Remove this client when he disconnects
 });
 exports.default = messagesRoutes;
 //# sourceMappingURL=messagesRoutes.js.map
