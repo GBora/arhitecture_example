@@ -29,7 +29,7 @@ class MessageService {
             console.error(err);
         }
     }
-    getConversation(user1, user2) {
+    getConversation(user1, user2, count) {
         return __awaiter(this, void 0, void 0, function* () {
             let rawMessages = yield this.messageAPI.getConversationMessages(user1, user2);
             let rawUser1 = (yield this.userAPI.searchUser(user1)).find(data => data.dataValues.EMAIL === user1);
@@ -37,7 +37,7 @@ class MessageService {
             let rawUser2 = (yield this.userAPI.searchUser(user2)).find(data => data.dataValues.EMAIL === user2);
             let fullUser2 = userConverter_1.default.fromDBRow(rawUser2);
             let fullMessages = rawMessages.map(raw => messageTransformers_1.bindUserToMessage(raw, fullUser1, fullUser2));
-            return Promise.resolve(fullMessages);
+            return Promise.resolve(fullMessages.slice(-count));
         });
     }
 }

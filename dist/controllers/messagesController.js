@@ -15,11 +15,12 @@ class MessagesCtrl {
         this.pushMessage(data);
     }
     getConversation(data) {
-        return this.messageService.getConversation(data.user1, data.user2);
+        return this.messageService.getConversation(data.user1, data.user2, data.count);
     }
     pushMessage(data) {
         let connection = sseService_1.default.getUserConnection(data.to);
         let message = {
+            type: 'new_msg',
             to: data.to,
             from: data.from,
             content: data.content

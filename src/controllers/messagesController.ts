@@ -14,12 +14,13 @@ export default class MessagesCtrl {
     }
 
     getConversation(data: any): Promise<IMessage[]> {
-        return this.messageService.getConversation(data.user1, data.user2);
+        return this.messageService.getConversation(data.user1, data.user2, data.count);
     }
 
     pushMessage(data: any) {
         let connection = SseService.getUserConnection(data.to);
         let message = {
+            type: 'new_msg',
             to: data.to,
             from: data.from,
             content: data.content

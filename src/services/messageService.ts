@@ -9,7 +9,7 @@ import { bindUserToMessage } from "../transformers/messageTransformers";
 
 export interface IMessageService {
     addMessage(message: IMessageInput): void
-    getConversation(user1: string, user2: string): Promise<IMessage[]>
+    getConversation(user1: string, user2: string, count: number): Promise<IMessage[]>
 }
 
 export class MessageService implements IMessageService {
@@ -25,7 +25,7 @@ export class MessageService implements IMessageService {
         }
     }
 
-    async getConversation(user1: string, user2: string): Promise<IMessage[]> {
+    async getConversation(user1: string, user2: string, count: number): Promise<IMessage[]> {
         let rawMessages: IMessageInput[] = await this.messageAPI.getConversationMessages(user1, user2);
 
         let rawUser1: any = (await this.userAPI.searchUser(user1)).find( data => data.dataValues.EMAIL === user1);
@@ -36,7 +36,7 @@ export class MessageService implements IMessageService {
 
         let fullMessages: IMessage[] = rawMessages.map( raw => bindUserToMessage(raw, fullUser1, fullUser2));
 
-        return Promise.resolve(fullMessages);
+        return Promise.resolve(fullMessages.slice(-count));
     }
 
 }
