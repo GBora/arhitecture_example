@@ -24,7 +24,6 @@ UserModel.init({
   EMAIL: {
     type: TEXT,
     allowNull: false,
-    unique: true
   },
   FIRST_NAME: {
       type: TEXT,

@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-1\">\n        <div class=\"plus-avatar\" (click)=\"search()\">\n            +\n        </div>\n\n        <div class=\"friend-avatar mt-3\" *ngFor=\"let friend of friends\" (click)=\"startConv(friend)\">\n            {{ friend.firstName.slice(0,1)}} {{friend.lastName.slice(0, 1)}}\n        </div>\n    </div>\n    <div class=\"col-11\">\n        <div class=\"p-5\">\n            <app-message-thread *ngIf=\"this.showThread\" [friend]=\"friendConversing\"></app-message-thread>\n            <app-friend-search *ngIf=\"this.showSearch\" (newFriend)=\"this.addedFriend($event)\"></app-friend-search>\n        </div>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"p-3 text-center\">\r\n                Want more friends ? Try <a routerLink=\"/friends-search\">searching</a> for people you might know.\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"friend-avatar col-1 m-1\"\r\n            *ngFor=\"let friend of friends\"\r\n            routerLink=\"/friend-dialog/{{ friend.email }}\">\r\n            {{ friend.firstName.slice(0,1)}} {{friend.lastName.slice(0, 1)}}\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form class=\"form m-0 p-0 ml-5 mr-2\">\n  <div class=\"form-group \">\n      <input type=\"text\"\n            class=\"form-control reply-input\"\n            (keyup)=\"reply($event)\"\n            name=\"currentReply\"\n            [(ngModel)]=\"currentReply\">\n  </div>\n</form>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form class=\"form m-0 p-0 ml-5 mr-2\">\r\n  <div class=\"form-group \">\r\n      <input type=\"text\"\r\n            class=\"form-control reply-input\"\r\n            (keyup)=\"reply($event)\"\r\n            name=\"currentReply\"\r\n            [(ngModel)]=\"currentReply\">\r\n  </div>\r\n</form>\r\n");
 
 /***/ }),
 
@@ -108,6 +108,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"dialog-user-avatar\" [class.self]=\"isSelf\">\n  {{ user.firstName[0].toUpperCase() }} {{ user.lastName[0].toUpperCase() }}\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/friend-dialog-page/friend-dialog-page.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/friend-dialog-page/friend-dialog-page.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col-12\" *ngIf=\"this.selectedFriend\">\r\n        <app-message-thread [friend]=\"this.selectedFriend\"></app-message-thread>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/friend-search-page/friend-search-page.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/friend-search-page/friend-search-page.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    <div class=\"p-3 text-center\">\r\n      Enter the email of your friend bellow and find them, you will add them to your friend list.\r\n    </div>\r\n    <div>\r\n      <app-friend-search (newFriend)=\"this.addedFriend($event)\"></app-friend-search>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -146,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n    <div *ngIf=\"messages.length\" \n         class=\"ml-3 pb-3 messages-list\"\n         infiniteScroll\n         [scrollWindow]=\"false\"\n         [infiniteScrollDistance]=\"2\"\n         [infiniteScrollUpDistance]=\"1.5\"\n         [infiniteScrollThrottle]=\"50\"\n         (scrolledUp)=\"onScrollUp()\">\n        <div *ngFor=\"let msg of messages\" class=\"row mt-3\">\n          <div class=\"col-9\">\n            <app-dialog-message [content]=\"msg.content\"\n                                [isSelf]=\"msg.sender.email === myself.email\">\n            </app-dialog-message>\n          </div>\n          <div class=\"col-3\">\n            <app-dialog-user-avatar [user]=\"msg.sender\"\n                                    [isSelf]=\"msg.sender.email === myself.email\">\n            </app-dialog-user-avatar>\n          </div>\n        </div>\n    </div>\n    <div class=\"pl-3\">\n      <div class=\"row mt-3\">\n        <div class=\"col-9\">\n          <app-dialog-form (messageAdded)=\"postReply($event)\"></app-dialog-form>\n        </div>\n      </div>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div>\r\n    <div *ngIf=\"messages.length\" \r\n         class=\"ml-3 pb-3 messages-list\"\r\n         infiniteScroll\r\n         [scrollWindow]=\"false\"\r\n         [infiniteScrollDistance]=\"2\"\r\n         [infiniteScrollUpDistance]=\"1.5\"\r\n         [infiniteScrollThrottle]=\"50\"\r\n         (scrolledUp)=\"onScrollUp()\">\r\n        <div *ngFor=\"let msg of messages\" class=\"row mt-3\">\r\n          <div class=\"col-9\">\r\n            <app-dialog-message [content]=\"msg.content\"\r\n                                [isSelf]=\"msg.sender.email === myself.email\">\r\n            </app-dialog-message>\r\n          </div>\r\n          <div class=\"col-3\">\r\n            <app-dialog-user-avatar [user]=\"msg.sender\"\r\n                                    [isSelf]=\"msg.sender.email === myself.email\">\r\n            </app-dialog-user-avatar>\r\n          </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"pl-3\">\r\n      <div class=\"row mt-3\">\r\n        <div class=\"col-9\">\r\n          <app-dialog-form (messageAdded)=\"postReply($event)\"></app-dialog-form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -408,6 +434,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./conversation/conversation.component */ "./src/app/conversation/conversation.component.ts");
+/* harmony import */ var _friend_search_page_friend_search_page_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./friend-search-page/friend-search-page.component */ "./src/app/friend-search-page/friend-search-page.component.ts");
+/* harmony import */ var _friend_dialog_page_friend_dialog_page_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./friend-dialog-page/friend-dialog-page.component */ "./src/app/friend-dialog-page/friend-dialog-page.component.ts");
+
+
 
 
 
@@ -418,18 +448,9 @@ const routes = [
     { path: '', redirectTo: '/signup', pathMatch: 'full' },
     { path: 'signup', component: _signup_signup_component__WEBPACK_IMPORTED_MODULE_3__["SignupComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
-    { path: 'conversation',
-        component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"],
-        children: [
-            {
-                path: '',
-                component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"]
-            },
-            {
-                path: ':id',
-                component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"]
-            }
-        ] }
+    { path: 'friends-list', component: _conversation_conversation_component__WEBPACK_IMPORTED_MODULE_5__["ConversationComponent"] },
+    { path: 'friends-search', component: _friend_search_page_friend_search_page_component__WEBPACK_IMPORTED_MODULE_6__["FriendSearchPageComponent"] },
+    { path: 'friend-dialog/:email', component: _friend_dialog_page_friend_dialog_page_component__WEBPACK_IMPORTED_MODULE_7__["FriendDialogPageComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -453,7 +474,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".navbar {\n  color: #fff !important;\n}\n\n.user-menu {\n  border: 1px solid #fff;\n  padding: 0.5rem;\n  border-radius: 50%;\n  font-weight: 900;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxzQkFBQTtBQ0NKOztBREVBO0VBQ0Usc0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmJhciB7XG4gICAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcbn1cblxuLnVzZXItbWVudSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNmZmY7XG4gIHBhZGRpbmc6IDAuNXJlbTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXdlaWdodDogOTAwO1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuIiwiLm5hdmJhciB7XG4gIGNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG59XG5cbi51c2VyLW1lbnUge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZmZmO1xuICBwYWRkaW5nOiAwLjVyZW07XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".navbar {\n  color: #fff !important;\n}\n\n.user-menu {\n  border: 1px solid #fff;\n  padding: 0.5rem;\n  border-radius: 50%;\n  font-weight: 900;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksc0JBQUE7QUNDSjs7QURFQTtFQUNFLHNCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gICAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnVzZXItbWVudSB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGZvbnQtd2VpZ2h0OiA5MDA7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbiIsIi5uYXZiYXIge1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xufVxuXG4udXNlci1tZW51IHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcbiAgcGFkZGluZzogMC41cmVtO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGZvbnQtc2l6ZTogMS41cmVtO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -547,6 +568,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./dialog-message/dialog-message.component */ "./src/app/dialog-message/dialog-message.component.ts");
 /* harmony import */ var _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./dialog-user-avatar/dialog-user-avatar.component */ "./src/app/dialog-user-avatar/dialog-user-avatar.component.ts");
 /* harmony import */ var _dialog_form_dialog_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./dialog-form/dialog-form.component */ "./src/app/dialog-form/dialog-form.component.ts");
+/* harmony import */ var _friend_search_page_friend_search_page_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./friend-search-page/friend-search-page.component */ "./src/app/friend-search-page/friend-search-page.component.ts");
+/* harmony import */ var _friend_dialog_page_friend_dialog_page_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./friend-dialog-page/friend-dialog-page.component */ "./src/app/friend-dialog-page/friend-dialog-page.component.ts");
+
+
 
 
 
@@ -580,7 +605,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _message_thread_message_thread_component__WEBPACK_IMPORTED_MODULE_16__["MessageThreadComponent"],
             _dialog_message_dialog_message_component__WEBPACK_IMPORTED_MODULE_17__["DialogMessageComponent"],
             _dialog_user_avatar_dialog_user_avatar_component__WEBPACK_IMPORTED_MODULE_18__["DialogUserAvatarComponent"],
-            _dialog_form_dialog_form_component__WEBPACK_IMPORTED_MODULE_19__["DialogFormComponent"]
+            _dialog_form_dialog_form_component__WEBPACK_IMPORTED_MODULE_19__["DialogFormComponent"],
+            _friend_search_page_friend_search_page_component__WEBPACK_IMPORTED_MODULE_20__["FriendSearchPageComponent"],
+            _friend_dialog_page_friend_dialog_page_component__WEBPACK_IMPORTED_MODULE_21__["FriendDialogPageComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -629,7 +656,7 @@ const configs = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".friend-avatar {\n  background: #bbb;\n  color: #fff;\n  width: 4rem;\n  height: 4rem;\n  text-align: center;\n  font-size: 1.5rem;\n  line-height: 4rem;\n  border-radius: 50%;\n  cursor: pointer;\n}\n\n.plus-avatar {\n  color: #bbb;\n  width: 4rem;\n  height: 4rem;\n  text-align: center;\n  font-size: 4rem;\n  line-height: 4rem;\n  border-radius: 50%;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvY29udmVyc2F0aW9uL2NvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29udmVyc2F0aW9uL2NvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxXQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29udmVyc2F0aW9uL2NvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mcmllbmQtYXZhdGFyIHtcbiAgICBiYWNrZ3JvdW5kOiAjYmJiO1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIHdpZHRoOiA0cmVtO1xuICAgIGhlaWdodDogNHJlbTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC1zaXplOiAxLjVyZW07XG4gICAgbGluZS1oZWlnaHQ6IDRyZW07XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnBsdXMtYXZhdGFyIHtcbiAgICBjb2xvcjogI2JiYjtcbiAgICB3aWR0aDogNHJlbTtcbiAgICBoZWlnaHQ6IDRyZW07XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZvbnQtc2l6ZTogNHJlbTtcbiAgICBsaW5lLWhlaWdodDogNHJlbTtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xufSIsIi5mcmllbmQtYXZhdGFyIHtcbiAgYmFja2dyb3VuZDogI2JiYjtcbiAgY29sb3I6ICNmZmY7XG4gIHdpZHRoOiA0cmVtO1xuICBoZWlnaHQ6IDRyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiA0cmVtO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnBsdXMtYXZhdGFyIHtcbiAgY29sb3I6ICNiYmI7XG4gIHdpZHRoOiA0cmVtO1xuICBoZWlnaHQ6IDRyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiA0cmVtO1xuICBsaW5lLWhlaWdodDogNHJlbTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".friend-avatar {\n  background: #bbb;\n  color: #fff;\n  width: 4rem;\n  height: 4rem;\n  text-align: center;\n  font-size: 1.5rem;\n  line-height: 4rem;\n  border-radius: 50%;\n  cursor: pointer;\n}\n\n.plus-avatar {\n  color: #bbb;\n  width: 4rem;\n  height: 4rem;\n  text-align: center;\n  font-size: 4rem;\n  line-height: 4rem;\n  border-radius: 50%;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29udmVyc2F0aW9uL0M6XFxVc2Vyc1xcZ2VvcmdlXFxEb2N1bWVudHNcXEdpdEh1YlxcYXJjaGl0ZWN0dXJlLWZyb250L3NyY1xcYXBwXFxjb252ZXJzYXRpb25cXGNvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29udmVyc2F0aW9uL2NvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxXQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29udmVyc2F0aW9uL2NvbnZlcnNhdGlvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mcmllbmQtYXZhdGFyIHtcclxuICAgIGJhY2tncm91bmQ6ICNiYmI7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIHdpZHRoOiA0cmVtO1xyXG4gICAgaGVpZ2h0OiA0cmVtO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgICBsaW5lLWhlaWdodDogNHJlbTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLnBsdXMtYXZhdGFyIHtcclxuICAgIGNvbG9yOiAjYmJiO1xyXG4gICAgd2lkdGg6IDRyZW07XHJcbiAgICBoZWlnaHQ6IDRyZW07XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LXNpemU6IDRyZW07XHJcbiAgICBsaW5lLWhlaWdodDogNHJlbTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSIsIi5mcmllbmQtYXZhdGFyIHtcbiAgYmFja2dyb3VuZDogI2JiYjtcbiAgY29sb3I6ICNmZmY7XG4gIHdpZHRoOiA0cmVtO1xuICBoZWlnaHQ6IDRyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiA0cmVtO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnBsdXMtYXZhdGFyIHtcbiAgY29sb3I6ICNiYmI7XG4gIHdpZHRoOiA0cmVtO1xuICBoZWlnaHQ6IDRyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiA0cmVtO1xuICBsaW5lLWhlaWdodDogNHJlbTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -673,9 +700,6 @@ let ConversationComponent = class ConversationComponent {
             }
         });
     }
-    search() {
-        this.showSearch = true;
-    }
     addedFriend(friend) {
         this.showSearch = false;
         this.userService.addFriend(friend.email).then((res) => {
@@ -715,7 +739,7 @@ ConversationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("form {\n  max-width: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvZGlhbG9nLWZvcm0vZGlhbG9nLWZvcm0uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2RpYWxvZy1mb3JtL2RpYWxvZy1mb3JtLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2RpYWxvZy1mb3JtL2RpYWxvZy1mb3JtLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZm9ybSB7XG4gICAgbWF4LXdpZHRoOiBub25lICFpbXBvcnRhbnQ7XG59IiwiZm9ybSB7XG4gIG1heC13aWR0aDogbm9uZSAhaW1wb3J0YW50O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("form {\n  max-width: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLWZvcm0vQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGRpYWxvZy1mb3JtXFxkaWFsb2ctZm9ybS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLWZvcm0vZGlhbG9nLWZvcm0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSwwQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLWZvcm0vZGlhbG9nLWZvcm0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJmb3JtIHtcclxuICAgIG1heC13aWR0aDogbm9uZSAhaW1wb3J0YW50O1xyXG59IiwiZm9ybSB7XG4gIG1heC13aWR0aDogbm9uZSAhaW1wb3J0YW50O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -770,7 +794,7 @@ DialogFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".dialog-message {\n  border: 1px solid #ccc;\n  border-radius: 0.4em;\n}\n\n.dialog-message {\n  position: relative;\n  background: #ccc;\n  color: #fff;\n}\n\n.dialog-message.self {\n  position: relative;\n  background: #fff;\n  color: #ccc;\n}\n\n.dialog-message:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n\n.dialog-message.self:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2RpYWxvZy1tZXNzYWdlL2RpYWxvZy1tZXNzYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSxvQkFBQTtBQ0NGOztBREVBO0VBQ0Msa0JBQUE7RUFDQyxnQkFBQTtFQUNBLFdBQUE7QUNDRjs7QURHQTtFQUNDLGtCQUFBO0VBQ0MsZ0JBQUE7RUFDQSxXQUFBO0FDQUY7O0FESUE7RUFDQyxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsaUNBQUE7RUFDQSx1QkFBQTtFQUNBLGVBQUE7RUFDQSxvQkFBQTtFQUNBLHNCQUFBO0FDREQ7O0FESUE7RUFDQyxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsaUNBQUE7RUFDQSx1QkFBQTtFQUNBLGVBQUE7RUFDQSxvQkFBQTtFQUNBLHNCQUFBO0FDREQiLCJmaWxlIjoic3JjL2FwcC9kaWFsb2ctbWVzc2FnZS9kaWFsb2ctbWVzc2FnZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaWFsb2ctbWVzc2FnZSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IC40ZW07XG59XG5cbi5kaWFsb2ctbWVzc2FnZSB7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgYmFja2dyb3VuZDogI2NjYztcbiAgY29sb3I6ICNmZmY7XG5cdC8vIGJvcmRlci1yYWRpdXM6IC40ZW07XG59XG5cbi5kaWFsb2ctbWVzc2FnZS5zZWxmIHtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBjb2xvcjogI2NjYztcblx0Ly8gYm9yZGVyLXJhZGl1czogLjRlbTtcbn1cblxuLmRpYWxvZy1tZXNzYWdlOmFmdGVyIHtcblx0Y29udGVudDogJyc7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0cmlnaHQ6IDA7XG5cdHRvcDogNTAlO1xuXHR3aWR0aDogMDtcblx0aGVpZ2h0OiAwO1xuXHRib3JkZXI6IDAuNTYzZW0gc29saWQgdHJhbnNwYXJlbnQ7XG5cdGJvcmRlci1sZWZ0LWNvbG9yOiAjY2NjO1xuXHRib3JkZXItcmlnaHQ6IDA7XG5cdG1hcmdpbi10b3A6IC0wLjU2MmVtO1xuXHRtYXJnaW4tcmlnaHQ6IC0wLjU2MmVtO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2Uuc2VsZjphZnRlciB7XG5cdGNvbnRlbnQ6ICcnO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHJpZ2h0OiAwO1xuXHR0b3A6IDUwJTtcblx0d2lkdGg6IDA7XG5cdGhlaWdodDogMDtcblx0Ym9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuXHRib3JkZXItbGVmdC1jb2xvcjogI2NjYztcblx0Ym9yZGVyLXJpZ2h0OiAwO1xuXHRtYXJnaW4tdG9wOiAtMC41NjJlbTtcblx0bWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn1cbiIsIi5kaWFsb2ctbWVzc2FnZSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDAuNGVtO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2Uge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQ6ICNjY2M7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2Uuc2VsZiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgYmFja2dyb3VuZDogI2ZmZjtcbiAgY29sb3I6ICNjY2M7XG59XG5cbi5kaWFsb2ctbWVzc2FnZTphZnRlciB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogNTAlO1xuICB3aWR0aDogMDtcbiAgaGVpZ2h0OiAwO1xuICBib3JkZXI6IDAuNTYzZW0gc29saWQgdHJhbnNwYXJlbnQ7XG4gIGJvcmRlci1sZWZ0LWNvbG9yOiAjY2NjO1xuICBib3JkZXItcmlnaHQ6IDA7XG4gIG1hcmdpbi10b3A6IC0wLjU2MmVtO1xuICBtYXJnaW4tcmlnaHQ6IC0wLjU2MmVtO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2Uuc2VsZjphZnRlciB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogNTAlO1xuICB3aWR0aDogMDtcbiAgaGVpZ2h0OiAwO1xuICBib3JkZXI6IDAuNTYzZW0gc29saWQgdHJhbnNwYXJlbnQ7XG4gIGJvcmRlci1sZWZ0LWNvbG9yOiAjY2NjO1xuICBib3JkZXItcmlnaHQ6IDA7XG4gIG1hcmdpbi10b3A6IC0wLjU2MmVtO1xuICBtYXJnaW4tcmlnaHQ6IC0wLjU2MmVtO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".dialog-message {\n  border: 1px solid #ccc;\n  border-radius: 0.4em;\n}\n\n.dialog-message {\n  position: relative;\n  background: #ccc;\n  color: #fff;\n}\n\n.dialog-message.self {\n  position: relative;\n  background: #fff;\n  color: #ccc;\n}\n\n.dialog-message:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n\n.dialog-message.self:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 0;\n  height: 0;\n  border: 0.563em solid transparent;\n  border-left-color: #ccc;\n  border-right: 0;\n  margin-top: -0.562em;\n  margin-right: -0.562em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXGRpYWxvZy1tZXNzYWdlXFxkaWFsb2ctbWVzc2FnZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLW1lc3NhZ2UvZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLG9CQUFBO0FDQ0Y7O0FERUE7RUFDQyxrQkFBQTtFQUNDLGdCQUFBO0VBQ0EsV0FBQTtBQ0NGOztBREdBO0VBQ0Msa0JBQUE7RUFDQyxnQkFBQTtFQUNBLFdBQUE7QUNBRjs7QURJQTtFQUNDLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxpQ0FBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7QUNERDs7QURJQTtFQUNDLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxpQ0FBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0Esc0JBQUE7QUNERCIsImZpbGUiOiJzcmMvYXBwL2RpYWxvZy1tZXNzYWdlL2RpYWxvZy1tZXNzYWdlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRpYWxvZy1tZXNzYWdlIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IC40ZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZSB7XHJcblx0cG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGJhY2tncm91bmQ6ICNjY2M7XHJcbiAgY29sb3I6ICNmZmY7XHJcblx0Ly8gYm9yZGVyLXJhZGl1czogLjRlbTtcclxufVxyXG5cclxuLmRpYWxvZy1tZXNzYWdlLnNlbGYge1xyXG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG4gIGNvbG9yOiAjY2NjO1xyXG5cdC8vIGJvcmRlci1yYWRpdXM6IC40ZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZTphZnRlciB7XHJcblx0Y29udGVudDogJyc7XHJcblx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdHJpZ2h0OiAwO1xyXG5cdHRvcDogNTAlO1xyXG5cdHdpZHRoOiAwO1xyXG5cdGhlaWdodDogMDtcclxuXHRib3JkZXI6IDAuNTYzZW0gc29saWQgdHJhbnNwYXJlbnQ7XHJcblx0Ym9yZGVyLWxlZnQtY29sb3I6ICNjY2M7XHJcblx0Ym9yZGVyLXJpZ2h0OiAwO1xyXG5cdG1hcmdpbi10b3A6IC0wLjU2MmVtO1xyXG5cdG1hcmdpbi1yaWdodDogLTAuNTYyZW07XHJcbn1cclxuXHJcbi5kaWFsb2ctbWVzc2FnZS5zZWxmOmFmdGVyIHtcclxuXHRjb250ZW50OiAnJztcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0cmlnaHQ6IDA7XHJcblx0dG9wOiA1MCU7XHJcblx0d2lkdGg6IDA7XHJcblx0aGVpZ2h0OiAwO1xyXG5cdGJvcmRlcjogMC41NjNlbSBzb2xpZCB0cmFuc3BhcmVudDtcclxuXHRib3JkZXItbGVmdC1jb2xvcjogI2NjYztcclxuXHRib3JkZXItcmlnaHQ6IDA7XHJcblx0bWFyZ2luLXRvcDogLTAuNTYyZW07XHJcblx0bWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcclxufVxyXG4iLCIuZGlhbG9nLW1lc3NhZ2Uge1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBib3JkZXItcmFkaXVzOiAwLjRlbTtcbn1cblxuLmRpYWxvZy1tZXNzYWdlIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kOiAjY2NjO1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmRpYWxvZy1tZXNzYWdlLnNlbGYge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGNvbG9yOiAjY2NjO1xufVxuXG4uZGlhbG9nLW1lc3NhZ2U6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItbGVmdC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJpZ2h0OiAwO1xuICBtYXJnaW4tdG9wOiAtMC41NjJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn1cblxuLmRpYWxvZy1tZXNzYWdlLnNlbGY6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyOiAwLjU2M2VtIHNvbGlkIHRyYW5zcGFyZW50O1xuICBib3JkZXItbGVmdC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJpZ2h0OiAwO1xuICBtYXJnaW4tdG9wOiAtMC41NjJlbTtcbiAgbWFyZ2luLXJpZ2h0OiAtMC41NjJlbTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -818,7 +842,7 @@ DialogMessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".dialog-user-avatar {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  color: #fff;\n  background-color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n\n.dialog-user-avatar.self {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  background-color: transparent;\n  color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDQ0Y7O0FERUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaWFsb2ctdXNlci1hdmF0YXIge1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgbGluZS1oZWlnaHQ6IDMuNXJlbTtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiAwLjI1cmVtO1xuICBtYXJnaW46IDAgYXV0bztcbiAgd2lkdGg6IDRyZW07XG4gIGhlaWdodDogNHJlbTtcbn1cblxuLmRpYWxvZy11c2VyLWF2YXRhci5zZWxmIHtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBjb2xvcjogI2NjYztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDAuMjVyZW07XG4gIG1hcmdpbjogMCBhdXRvO1xuICB3aWR0aDogNHJlbTtcbiAgaGVpZ2h0OiA0cmVtO1xufVxuIiwiLmRpYWxvZy11c2VyLWF2YXRhciB7XG4gIGZvbnQtc2l6ZTogMS41cmVtO1xuICBsaW5lLWhlaWdodDogMy41cmVtO1xuICBmb250LXdlaWdodDogOTAwO1xuICBjb2xvcjogI2ZmZjtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2NjYztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDAuMjVyZW07XG4gIG1hcmdpbjogMCBhdXRvO1xuICB3aWR0aDogNHJlbTtcbiAgaGVpZ2h0OiA0cmVtO1xufVxuXG4uZGlhbG9nLXVzZXItYXZhdGFyLnNlbGYge1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgbGluZS1oZWlnaHQ6IDMuNXJlbTtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGNvbG9yOiAjY2NjO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZzogMC4yNXJlbTtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIHdpZHRoOiA0cmVtO1xuICBoZWlnaHQ6IDRyZW07XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".dialog-user-avatar {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  color: #fff;\n  background-color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n\n.dialog-user-avatar.self {\n  font-size: 1.5rem;\n  line-height: 3.5rem;\n  font-weight: 900;\n  background-color: transparent;\n  color: #ccc;\n  border-radius: 50%;\n  border: 1px solid #ccc;\n  text-align: center;\n  padding: 0.25rem;\n  margin: 0 auto;\n  width: 4rem;\n  height: 4rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL0M6XFxVc2Vyc1xcZ2VvcmdlXFxEb2N1bWVudHNcXEdpdEh1YlxcYXJjaGl0ZWN0dXJlLWZyb250L3NyY1xcYXBwXFxkaWFsb2ctdXNlci1hdmF0YXJcXGRpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDQ0Y7O0FERUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvZGlhbG9nLXVzZXItYXZhdGFyL2RpYWxvZy11c2VyLWF2YXRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaWFsb2ctdXNlci1hdmF0YXIge1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XHJcbiAgZm9udC13ZWlnaHQ6IDkwMDtcclxuICBjb2xvcjogI2ZmZjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2NjO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiAwLjI1cmVtO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIHdpZHRoOiA0cmVtO1xyXG4gIGhlaWdodDogNHJlbTtcclxufVxyXG5cclxuLmRpYWxvZy11c2VyLWF2YXRhci5zZWxmIHtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBsaW5lLWhlaWdodDogMy41cmVtO1xyXG4gIGZvbnQtd2VpZ2h0OiA5MDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6ICNjY2M7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDAuMjVyZW07XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgd2lkdGg6IDRyZW07XHJcbiAgaGVpZ2h0OiA0cmVtO1xyXG59XHJcbiIsIi5kaWFsb2ctdXNlci1hdmF0YXIge1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgbGluZS1oZWlnaHQ6IDMuNXJlbTtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiAwLjI1cmVtO1xuICBtYXJnaW46IDAgYXV0bztcbiAgd2lkdGg6IDRyZW07XG4gIGhlaWdodDogNHJlbTtcbn1cblxuLmRpYWxvZy11c2VyLWF2YXRhci5zZWxmIHtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiAzLjVyZW07XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBjb2xvcjogI2NjYztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDAuMjVyZW07XG4gIG1hcmdpbjogMCBhdXRvO1xuICB3aWR0aDogNHJlbTtcbiAgaGVpZ2h0OiA0cmVtO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -852,6 +876,133 @@ DialogUserAvatarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dialog-user-avatar.component.scss */ "./src/app/dialog-user-avatar/dialog-user-avatar.component.scss")).default]
     })
 ], DialogUserAvatarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/friend-dialog-page/friend-dialog-page.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/friend-dialog-page/friend-dialog-page.component.scss ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZyaWVuZC1kaWFsb2ctcGFnZS9mcmllbmQtZGlhbG9nLXBhZ2UuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/friend-dialog-page/friend-dialog-page.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/friend-dialog-page/friend-dialog-page.component.ts ***!
+  \********************************************************************/
+/*! exports provided: FriendDialogPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendDialogPageComponent", function() { return FriendDialogPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user/user.service */ "./src/app/services/user/user.service.ts");
+
+
+
+
+let FriendDialogPageComponent = class FriendDialogPageComponent {
+    constructor(route, userService) {
+        this.route = route;
+        this.userService = userService;
+        this.friends = [];
+    }
+    ngOnInit() {
+        const urlEmail = this.route.snapshot.params.email;
+        this.userService.getFriends().subscribe((el) => {
+            this.friends = el;
+            if (urlEmail) {
+                this.friends.forEach((friend) => {
+                    if (friend.email === urlEmail) {
+                        this.selectedFriend = friend;
+                    }
+                });
+            }
+        });
+    }
+};
+FriendDialogPageComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] }
+];
+FriendDialogPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-friend-dialog-page',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./friend-dialog-page.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/friend-dialog-page/friend-dialog-page.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./friend-dialog-page.component.scss */ "./src/app/friend-dialog-page/friend-dialog-page.component.scss")).default]
+    })
+], FriendDialogPageComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/friend-search-page/friend-search-page.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/friend-search-page/friend-search-page.component.scss ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZyaWVuZC1zZWFyY2gtcGFnZS9mcmllbmQtc2VhcmNoLXBhZ2UuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/friend-search-page/friend-search-page.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/friend-search-page/friend-search-page.component.ts ***!
+  \********************************************************************/
+/*! exports provided: FriendSearchPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendSearchPageComponent", function() { return FriendSearchPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user/user.service */ "./src/app/services/user/user.service.ts");
+
+
+
+
+let FriendSearchPageComponent = class FriendSearchPageComponent {
+    constructor(router, userService) {
+        this.router = router;
+        this.userService = userService;
+    }
+    ngOnInit() {
+    }
+    addedFriend(friend) {
+        this.userService.addFriend(friend.email).then((res) => {
+            this.router.navigate(['/friends-list']);
+        });
+    }
+};
+FriendSearchPageComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] }
+];
+FriendSearchPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-friend-search-page',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./friend-search-page.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/friend-search-page/friend-search-page.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./friend-search-page.component.scss */ "./src/app/friend-search-page/friend-search-page.component.scss")).default]
+    })
+], FriendSearchPageComponent);
 
 
 
@@ -996,7 +1147,7 @@ let LoginComponent = class LoginComponent {
             this.userService.setCurentUser(user);
             // this.sse.initiateConnection(user.email);
             this.pubsub.$pub('user-change', user);
-            this.router.navigate(['/conversation']);
+            this.router.navigate(['/friends-list']);
         }, (err) => {
             alert('Something went wrong, could not login.');
         });
@@ -1029,7 +1180,7 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".reply-input {\n  width: 100%;\n}\n\nform {\n  max-width: none !important;\n}\n\n.messages-list {\n  max-height: 50vh;\n  overflow: hidden;\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2dib3JhL0RvY3VtZW50cy9Db2RlL2FyY2hpdGVjdHVyZS9hcmNoLWZyb250L3NyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL21lc3NhZ2UtdGhyZWFkL21lc3NhZ2UtdGhyZWFkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtBQ0NKOztBREVBO0VBQ0UsMEJBQUE7QUNDRjs7QURFQTtFQUNFLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVwbHktaW5wdXQge1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG5mb3JtIHtcbiAgbWF4LXdpZHRoOiBub25lICFpbXBvcnRhbnQ7XG59XG5cbi5tZXNzYWdlcy1saXN0IHtcbiAgbWF4LWhlaWdodDogNTB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xufVxuIiwiLnJlcGx5LWlucHV0IHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbmZvcm0ge1xuICBtYXgtd2lkdGg6IG5vbmUgIWltcG9ydGFudDtcbn1cblxuLm1lc3NhZ2VzLWxpc3Qge1xuICBtYXgtaGVpZ2h0OiA1MHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBvdmVyZmxvdy15OiBzY3JvbGw7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".reply-input {\n  width: 100%;\n}\n\nform {\n  max-width: none !important;\n}\n\n.messages-list {\n  max-height: 50vh;\n  overflow: hidden;\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvQzpcXFVzZXJzXFxnZW9yZ2VcXERvY3VtZW50c1xcR2l0SHViXFxhcmNoaXRlY3R1cmUtZnJvbnQvc3JjXFxhcHBcXG1lc3NhZ2UtdGhyZWFkXFxtZXNzYWdlLXRocmVhZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbWVzc2FnZS10aHJlYWQvbWVzc2FnZS10aHJlYWQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0FDQ0o7O0FERUE7RUFDRSwwQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9tZXNzYWdlLXRocmVhZC9tZXNzYWdlLXRocmVhZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXBseS1pbnB1dCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuZm9ybSB7XHJcbiAgbWF4LXdpZHRoOiBub25lICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tZXNzYWdlcy1saXN0IHtcclxuICBtYXgtaGVpZ2h0OiA1MHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xyXG59XHJcbiIsIi5yZXBseS1pbnB1dCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG5mb3JtIHtcbiAgbWF4LXdpZHRoOiBub25lICFpbXBvcnRhbnQ7XG59XG5cbi5tZXNzYWdlcy1saXN0IHtcbiAgbWF4LWhlaWdodDogNTB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -1266,7 +1417,7 @@ let UserService = class UserService {
         const url = this.base + '/friendship/add-friend';
         const request = {
             email1,
-            email2: this.getCurrentUser()
+            email2: this.getCurrentUser().email
         };
         return this.http.post(url, request, this.options).toPromise();
     }
@@ -1351,7 +1502,7 @@ let SignupComponent = class SignupComponent {
             const user = this.userService.getCurrentUser();
             console.log(user);
             if (user) {
-                this.router.navigate(['/conversation']);
+                this.router.navigate(['/friends-list']);
             }
         }
         catch (err) {
@@ -1453,7 +1604,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/gbora/Documents/Code/architecture/arch-front/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\george\Documents\GitHub\architecture-front\src\main.ts */"./src/main.ts");
 
 
 /***/ })

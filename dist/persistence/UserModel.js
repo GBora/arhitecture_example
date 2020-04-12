@@ -26,7 +26,6 @@ UserModel.init({
     EMAIL: {
         type: sequelize_1.TEXT,
         allowNull: false,
-        unique: true
     },
     FIRST_NAME: {
         type: sequelize_1.TEXT,

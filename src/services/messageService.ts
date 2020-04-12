@@ -27,6 +27,7 @@ export class MessageService implements IMessageService {
 
     async getConversation(user1: string, user2: string, count: number): Promise<IMessage[]> {
         let rawMessages: IMessageInput[] = await this.messageAPI.getConversationMessages(user1, user2);
+        console.log(rawMessages.length);
 
         let rawUser1: any = (await this.userAPI.searchUser(user1)).find( data => data.dataValues.EMAIL === user1);
         let fullUser1 = UserConvertor.fromDBRow(rawUser1);
