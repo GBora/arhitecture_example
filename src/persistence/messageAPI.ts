@@ -1,12 +1,23 @@
 import IMessageInput from "../models/IMessageInput";
 import MessageModel from "./MessageModel";
 
-import { Sequelize, QueryTypes } from "sequelize";
+import { Sequelize, QueryTypes, Op } from "sequelize";
 import configs from "../config/configs";
 
-let sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: configs.dbURL
+// let sequelize = new Sequelize({
+//     dialect: 'sqlite',
+//     storage: configs.dbURL
+// });
+
+const sequelize = new Sequelize(configs.dbName, configs.dbUser, configs.dbPassword, {
+    host: configs.dbHost,
+    dialect: 'mysql',
+    pool: {
+        max: 10,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
 });
 
 
@@ -31,15 +42,11 @@ export default class messageAPI implements IMessageAPI {
             console.error(err);
         })
     }
-    async getConversationMessages(user1: string, user2: string): Promise<any> {
-        const [results, metadata] = await sequelize.query(`
-            SELECT * FROM MESSAGES 
-            WHERE (SENDER=:user1 AND RECIPIENT=:user2)
-            OR (SENDER=:user2 AND RECIPIENT=:user1)
-        `, {
-            replacements: { user1: user1, user2: user2 }
-           });
-
-        return Promise.resolve(results);
+    getConversationMessages(user1: string, user2: string): Promise<any> {
+        return MessageModel.findAll({
+            where: {
+                [Op.or]:  [{SENDER: user1, RECIPIENT: user2}, {SENDER: user2, RECIPIENT: user1}]
+            }
+        })
     }
 }

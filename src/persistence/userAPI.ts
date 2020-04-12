@@ -41,7 +41,7 @@ export default class userAPI implements IUserAPI {
         return UserModel.findOne({
             where: {
                 EMAIL: {
-                    [Op.is]: email
+                    [Op.eq]: email
                 }
             }
         })

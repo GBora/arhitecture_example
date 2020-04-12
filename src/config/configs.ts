@@ -1,7 +1,18 @@
+// TODO I know it's not ok to store my credentials like this, it's a test app give me a break
 export default {
-    dbURL: 'database.db',
+    // dbURL: 'database.db',
     port: 8080,
-    host: '0.0.0.0'
-}
+    host: '0.0.0.0',
 
-// let storageLocation = 'C:\\Users\\george\\Documents\\GitHub\\architecture_example\\db\\database.db';
+    // dbName: 'guarded_eyrie',
+    // dbUser: 'root',
+    // dbPassword: '',
+    // dbHost: 'localhost',
+    // dbDialect: 'mysql'    
+
+    dbName: 'heroku_8f2d4f86b0e3d37',
+    dbUser: 'bf006de9882f55',
+    dbPassword: 'b2f61d39',
+    dbHost: 'us-cdbr-iron-east-01.cleardb.net',
+    dbDialect: 'mysql'
+}
