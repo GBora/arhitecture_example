@@ -29,7 +29,12 @@ userRoutes.post("/search", (req, res) => {
 userRoutes.post("/login", (req, res) => {
     try {
         userCtrl.login(req.body).then((user) => {
-            res.json(user);
+            if (user) {
+                res.json(user);
+            }
+            else {
+                res.sendStatus(401);
+            }
         });
     }
     catch (err) {

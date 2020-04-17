@@ -32,7 +32,6 @@ class MessageService {
     getConversation(user1, user2, count) {
         return __awaiter(this, void 0, void 0, function* () {
             let rawMessages = yield this.messageAPI.getConversationMessages(user1, user2);
-            console.log(rawMessages.length);
             let rawUser1 = (yield this.userAPI.searchUser(user1)).find(data => data.dataValues.EMAIL === user1);
             let fullUser1 = userConverter_1.default.fromDBRow(rawUser1);
             let rawUser2 = (yield this.userAPI.searchUser(user2)).find(data => data.dataValues.EMAIL === user2);
